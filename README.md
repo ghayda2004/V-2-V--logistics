@@ -22,7 +22,7 @@ An intelligent vehicle-to-vehicle communication platform for autonomous logistic
      ┌───────────────┼───────────────┐
      ▼               ▼               ▼
 ┌──────────┐  ┌──────────┐   ┌──────────────┐
-│  PHASE 1 │  │  PHASE 2 │   │  PHASE 3     │
+│          │  │          |   │              │
 │ Static   │  │Agents &  │   │V2V Network   │
 │Intel     │  │Calculat  │   │(MQTT)        │
 └──────────┘  └──────────┘   └──────────────┘
@@ -41,7 +41,7 @@ An intelligent vehicle-to-vehicle communication platform for autonomous logistic
 
 ## 🎯 Project Phases
 
-### PHASE 1: Static Intelligence & Data Preparation (Python)
+### Static Intelligence & Data Preparation (Python)
 
 **Objective:** Transform raw data into optimized delivery missions.
 
@@ -78,7 +78,7 @@ An intelligent vehicle-to-vehicle communication platform for autonomous logistic
 
 ---
 
-### PHASE 2: Agent Modeling & Cost Calculator (AI Core)
+###  Agent Modeling & Cost Calculator (AI Core)
 
 **Objective:** Make each vehicle "aware" of its operational costs and capabilities.
 
@@ -104,10 +104,6 @@ insertion_cost = {
 }
 ```
 
-**Example:**
-- New package adds 4 km to route
-- Fuel consumption: 0.5 L/km × 4 km = 2 L
-- At 1.0 TND/L → **Bid: 2.0 TND + service_fee**
 
 #### Eligibility Checks
 1. **Capacity Check:** `package_size ≤ remaining_capacity`
@@ -118,81 +114,17 @@ insertion_cost = {
 
 ---
 
-### PHASE 3: V2V Communication & Auction System (MQTT)
+###  V2V Communication & Auction System (MQTT)
 
 **Objective:** Handle dynamic package allocation and real-time alerts without human intervention.
 
-#### MQTT Broker & Topics
 
-| Topic | Publisher | Subscribers | Purpose |
-|-------|-----------|-------------|---------|
-| `wassel/auctions/new_package` | Admin/System | All Agents | Announce new delivery task |
-| `wassel/auctions/bids/<package_id>` | Agents | System | Submit cost bid |
-| `wassel/auctions/awarded/<package_id>` | System | Winner Agent | Award delivery |
-| `wassel/v2v/alerts/traffic` | All Agents | All Agents | Report traffic/obstacles |
-| `wassel/v2v/alerts/accident` | Agents/External | All Agents | Emergency rerouting trigger |
-| `wassel/v2v/status` | Agents | Dashboard | Real-time fleet status |
 
 #### Auction Algorithm Flow
 
 ```
-1. NEW PACKAGE ANNOUNCED
-   └─> System publishes on wassel/auctions/new_package
-       Payload: {package_id, pickup, delivery, weight, volume, deadline}
 
-2. AGENT EVALUATION (LOCAL IA)
-   └─> Each agent receives announcement
-   └─> Calculates insertion_cost (≤50ms target)
-   └─> Checks eligibility constraints
-   └─> Returns bid or rejects
 
-3. BIDDING PHASE
-   ├─> Agent 1: "2.0 TND"
-   ├─> Agent 2: "2.5 TND"
-   ├─> Agent 3: "1.8 TND" ← LOWEST
-   └─> Agent N: "Reject (No capacity)"
-
-4. AWARD ASSIGNMENT
-   └─> System assigns to Agent 3
-   └─> Updates route dynamically
-   └─> Confirms via wassel/auctions/awarded/<package_id>
-
-5. REAL-TIME UPDATES
-   └─> Driver app refreshes route
-   └─> Dashboard updates KPIs
-```
-
-#### Auction Algorithm Details
-
-**Question:** How sophisticated should the bidding be?
-- **Option A (Simple):** Fixed cost = distance + time penalty
-- **Option B (Optimal):** Include:
-  - Opportunity cost (impacts future bids)
-  - Service level (priority packages premium)
-  - Driver preferences (cross-zone aversion)
-- **Recommended:** Start with Option A, transition to Option B with historical data
-
-**File:** `network/main.py`
-
----
-
-### PHASE 4: Dynamic Planning & Real-Time Adaptation
-
-**Objective:** Handle new packages and adapt to changing conditions.
-
-#### Dynamic Rerouting Triggers
-- ✅ New package won in auction
-- 🚧 Traffic alert on planned route
-- 🚧 Road closure/accident notification
-- 🚧 Driver manual reroute request
-
-#### Real-Time Updates to Driver App
-- New package added to route
-- ETA recalculated
-- Turn-by-turn directions updated
-- Fuel/autonomy warning if needed
-
----
 
 ## 📁 Project Structure
 
@@ -284,50 +216,14 @@ pip install pandas geopython google-ortools scikit-learn paho-mqtt
 
 ---
 
-## ❓ Frequently Asked Questions
-
-### Zone Management
-**Q: How many zones should we create?**
-A: Start with `√(total_packages_per_day / 10)` zones. Adjust based on geographic density and truck availability.
-
-**Q: Can drivers serve multiple zones?**
-A: Yes, but optimize carefully. Multi-zone routes increase complexity but improve utilization.
-
-**Q: What's the optimal zone radius?**
-A: 20-50 km depending on urban density. Urban areas: 20-30 km | Rural: 40-50 km
-
-### Auction Algorithm
-**Q: Why use auctions instead of centralized assignment?**
-A: Auctions reduce latency, empower drivers with autonomy, and naturally balance load.
-
-**Q: What if no agent bids on a package?**
-A: Escalate to secondary assignment logic or request admin intervention.
-
----
 
 ## 🔐 Security & Privacy
 
 - ✅ MQTT over TLS for encrypted communication
 - ✅ Package data anonymization in logs
 - ✅ Driver authentication via mobile app tokens
-- ✅ Audit trail for all transactions
 
 ---
 
-## 📞 Contact & Support
 
-For questions or issues:
-- 📧 Technical: [your-email]
-- 📱 Support: [your-contact]
-
----
-
-## 📝 License
-
-[Your License Here]
-
----
-
-**Last Updated:** March 2026
-**Version:** 1.0.0-beta
 **Status:** In Development - Phase 3 (V2V Communication)
