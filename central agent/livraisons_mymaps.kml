@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Livraisons</name>
+<Placemark>
+  <name>171025500386 - Jeanne d&#x27;arc</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 171025500386<br/><b>Adresse:</b> Jeanne d&#x27;arc<br/><b>Frais:</b> 8.2 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1809495,36.8200212,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425504211 - jardins d&#x27;el menzah 1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 60425504211<br/><b>Adresse:</b> jardins d&#x27;el menzah 1<br/><b>Frais:</b> 7.6 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1667221,36.8353876,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>210425541225 - Sidi bousaid</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 210425541225<br/><b>Adresse:</b> Sidi bousaid<br/><b>Frais:</b> 8.5 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1135873,36.7686795,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725698122 - manar1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725698122<br/><b>Adresse:</b> manar1<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1402003,36.8372507,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425552333 - carrefour el marsa</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 60425552333<br/><b>Adresse:</b> carrefour el marsa<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2970751,36.8662231,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725612526 - zahrouni</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725612526<br/><b>Adresse:</b> zahrouni<br/><b>Frais:</b> 8.8 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1078508,36.7922783,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>10825662219 - lycée abou kacem chebbi</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 10825662219<br/><b>Adresse:</b> lycée abou kacem chebbi<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1726889,36.7894184,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>110825640684 - 16 rue 8205 hay khadra</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 110825640684<br/><b>Adresse:</b> 16 rue 8205 hay khadra<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1995966,36.8328463,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>290825175632 - Kram</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 290825175632<br/><b>Adresse:</b> Kram<br/><b>Frais:</b> 9.25 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2943555,36.8479991,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725709567 - rue ichbilia</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725709567<br/><b>Adresse:</b> rue ichbilia<br/><b>Frais:</b> 7.6 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1127187,36.76413,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>521866255770 - Zone jardins d&#x27;el menzah 1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 521866255770<br/><b>Adresse:</b> Zone jardins d&#x27;el menzah 1<br/><b>Frais:</b> 8.95 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> En cours</div>]]></description>
+  <Point>
+    <coordinates>10.179683928298285,36.84853897317565,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>780470130801 - Zone carrefour el marsa</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 780470130801<br/><b>Adresse:</b> Zone carrefour el marsa<br/><b>Frais:</b> 10.0 TND<br/><b>PrioritÃ©:</b> Basique<br/><b>Statut:</b> En attente</div>]]></description>
+  <Point>
+    <coordinates>10.285958265950724,36.85220741483746,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>453164228223 - Zone rue ichbilia</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 453164228223<br/><b>Adresse:</b> Zone rue ichbilia<br/><b>Frais:</b> 7.45 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> En attente</div>]]></description>
+  <Point>
+    <coordinates>10.125107046780023,36.77462362174583,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>301120091950 - Zone Kram</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 301120091950<br/><b>Adresse:</b> Zone Kram<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> PrÃªt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.284638827537243,36.852994957550294,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>929393681469 - Zone jardins d&#x27;el menzah 1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 929393681469<br/><b>Adresse:</b> Zone jardins d&#x27;el menzah 1<br/><b>Frais:</b> 10.0 TND<br/><b>PrioritÃ©:</b> Basique<br/><b>Statut:</b> En cours</div>]]></description>
+  <Point>
+    <coordinates>10.180618967011412,36.83335234471113,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>808869070742 - Zone Sidi bousaid</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 808869070742<br/><b>Adresse:</b> Zone Sidi bousaid<br/><b>Frais:</b> 7.45 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> En cours</div>]]></description>
+  <Point>
+    <coordinates>10.106624674744817,36.756243727379754,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>EntrepÃ´t Principal</name>
+  <description><![CDATA[<div><b>EntrepÃ´t Principal</b><br/>Point de dÃ©part des livraisons</div>]]></description>
+  <Point>
+    <coordinates>10.20616,36.82857,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>
