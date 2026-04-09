@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Livraisons</name>
+<Placemark>
+  <name>60425504211 - jardins d&#x27;el menzah 1</name>
+  <description><![CDATA[<div><b>Référence:</b> 60425504211<br/><b>Adresse:</b> jardins d&#x27;el menzah 1<br/><b>Frais:</b> 7.6 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 12:34:12<br/><b>⏰ Limite (24h):</b> 12+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1667221,36.8353876,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425552333 - carrefour el marsa</name>
+  <description><![CDATA[<div><b>Référence:</b> 60425552333<br/><b>Adresse:</b> carrefour el marsa<br/><b>Frais:</b> 7.75 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 12:42:45<br/><b>⏰ Limite (24h):</b> 45+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2975514,36.8668257,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>210425541225 - Sidi bousaid</name>
+  <description><![CDATA[<div><b>Référence:</b> 210425541225<br/><b>Adresse:</b> Sidi bousaid<br/><b>Frais:</b> 8.5 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 00:05:39<br/><b>⏰ Limite (24h):</b> 39+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1135873,36.7686795,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725698122 - manar1</name>
+  <description><![CDATA[<div><b>Référence:</b> 240725698122<br/><b>Adresse:</b> manar1<br/><b>Frais:</b> 7.3 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 08:17:03<br/><b>⏰ Limite (24h):</b> 03+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1402003,36.8372507,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725709567 - rue ichbilia</name>
+  <description><![CDATA[<div><b>Référence:</b> 240725709567<br/><b>Adresse:</b> rue ichbilia<br/><b>Frais:</b> 7.6 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 08:20:11<br/><b>⏰ Limite (24h):</b> 11+01:00<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1127187,36.76413,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725612526 - zahrouni</name>
+  <description><![CDATA[<div><b>Référence:</b> 240725612526<br/><b>Adresse:</b> zahrouni<br/><b>Frais:</b> 8.8 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 08:32:05<br/><b>⏰ Limite (24h):</b> 05+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1078508,36.7922783,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>10825662219 - lycée abou kacem chebbi</name>
+  <description><![CDATA[<div><b>Référence:</b> 10825662219<br/><b>Adresse:</b> lycée abou kacem chebbi<br/><b>Frais:</b> 7.3 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 08:36:52<br/><b>⏰ Limite (24h):</b> 52+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1726889,36.7894184,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>110825640684 - 16 rue 8205 hay khadra</name>
+  <description><![CDATA[<div><b>Référence:</b> 110825640684<br/><b>Adresse:</b> 16 rue 8205 hay khadra<br/><b>Frais:</b> 7.3 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 09:11:38<br/><b>⏰ Limite (24h):</b> 38+01:00<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1831968,36.8453188,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>290825175632 - Kram</name>
+  <description><![CDATA[<div><b>Référence:</b> 290825175632<br/><b>Adresse:</b> Kram<br/><b>Frais:</b> 9.25 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 10:35:53<br/><b>⏰ Limite (24h):</b> 53+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2943555,36.8479991,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>171025500386 - Jeanne d&#x27;arc</name>
+  <description><![CDATA[<div><b>Référence:</b> 171025500386<br/><b>Adresse:</b> Jeanne d&#x27;arc<br/><b>Frais:</b> 8.2 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 19:05:02<br/><b>⏰ Limite (24h):</b> 02+01:00<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1809495,36.8200212,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>726945747030 - Zone rue ichbilia</name>
+  <description><![CDATA[<div><b>Référence:</b> 726945747030<br/><b>Adresse:</b> Zone rue ichbilia<br/><b>Frais:</b> 7.75 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 14+01:00<br/><b>⏰ Limite (24h):</b> 14+01:00<br/><b>Statut:</b> Prêt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.112910769466007,36.76806519177529,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>961454966707 - Zone Kram</name>
+  <description><![CDATA[<div><b>Référence:</b> 961454966707<br/><b>Adresse:</b> Zone Kram<br/><b>Frais:</b> 7.75 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 21+01:00<br/><b>⏰ Limite (24h):</b> 21+01:00<br/><b>Statut:</b> Prêt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.29066902777793,36.843340141622186,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>563026493294 - Zone rue ichbilia</name>
+  <description><![CDATA[<div><b>Référence:</b> 563026493294<br/><b>Adresse:</b> Zone rue ichbilia<br/><b>Frais:</b> 8.95 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 53+01:00<br/><b>⏰ Limite (24h):</b> 53+01:00<br/><b>Statut:</b> En attente</div>]]></description>
+  <Point>
+    <coordinates>10.109804655199932,36.77069737893297,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>836774799219 - Zone carrefour el marsa</name>
+  <description><![CDATA[<div><b>Référence:</b> 836774799219<br/><b>Adresse:</b> Zone carrefour el marsa<br/><b>Frais:</b> 7.75 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 59+01:00<br/><b>⏰ Limite (24h):</b> 59+01:00<br/><b>Statut:</b> Prêt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.29361439027672,36.88026137835333,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>958254097351 - Zone 16 rue 8205 hay khadra</name>
+  <description><![CDATA[<div><b>Référence:</b> 958254097351<br/><b>Adresse:</b> Zone 16 rue 8205 hay khadra<br/><b>Frais:</b> 7.45 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 47+01:00<br/><b>⏰ Limite (24h):</b> 47+01:00<br/><b>Statut:</b> Prêt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.168700790945223,36.846552450393254,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>919588028507 - Zone lycée abou kacem chebbi</name>
+  <description><![CDATA[<div><b>Référence:</b> 919588028507<br/><b>Adresse:</b> Zone lycée abou kacem chebbi<br/><b>Frais:</b> 7.45 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 55+01:00<br/><b>⏰ Limite (24h):</b> 55+01:00<br/><b>Statut:</b> En attente</div>]]></description>
+  <Point>
+    <coordinates>10.164320423423304,36.781409936761776,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>575502039942 - Zone 16 rue 8205 hay khadra</name>
+  <description><![CDATA[<div><b>Référence:</b> 575502039942<br/><b>Adresse:</b> Zone 16 rue 8205 hay khadra<br/><b>Frais:</b> 7.45 TND<br/><b>🎯 Urgence:</b> CRITIQUE<br/><b>📍 Pickup:</b> 11+01:00<br/><b>⏰ Limite (24h):</b> 11+01:00<br/><b>Statut:</b> En cours</div>]]></description>
+  <Point>
+    <coordinates>10.18057379814655,36.8314689392111,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>EntrepÃ´t Principal</name>
+  <description><![CDATA[<div><b>EntrepÃ´t Principal</b><br/>Point de dÃ©part des livraisons</div>]]></description>
+  <Point>
+    <coordinates>10.20616,36.82857,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Livraisons</name>
+<Placemark>
+  <name>195930661237 - Zone lycée abou kacem chebbi</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 195930661237<br/><b>Adresse:</b> Zone lycée abou kacem chebbi<br/><b>Frais:</b> 8.95 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> PrÃªt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.160964552223463,36.80326112952983,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>758968705664 - Zone carrefour el marsa</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 758968705664<br/><b>Adresse:</b> Zone carrefour el marsa<br/><b>Frais:</b> 10.0 TND<br/><b>PrioritÃ©:</b> Basique<br/><b>Statut:</b> En attente</div>]]></description>
+  <Point>
+    <coordinates>10.292583124450449,36.86265823979696,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>434597812226 - Zone tunis lafayette</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 434597812226<br/><b>Adresse:</b> Zone tunis lafayette<br/><b>Frais:</b> 10.0 TND<br/><b>PrioritÃ©:</b> Basique<br/><b>Statut:</b> PrÃªt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.193048501503188,36.8286681358098,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>218712428537 - Zone tunis centre ville</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 218712428537<br/><b>Adresse:</b> Zone tunis centre ville<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> PrÃªt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.183806959751788,36.80632175823432,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>974434736764 - Zone zahrouni</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 974434736764<br/><b>Adresse:</b> Zone zahrouni<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> En cours</div>]]></description>
+  <Point>
+    <coordinates>10.118834557853837,36.77806591548351,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>642621890421 - Zone Kram</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 642621890421<br/><b>Adresse:</b> Zone Kram<br/><b>Frais:</b> 10.0 TND<br/><b>PrioritÃ©:</b> Basique<br/><b>Statut:</b> En attente</div>]]></description>
+  <Point>
+    <coordinates>10.28413265181166,36.849047016913914,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>325601650785 - Zone manouba manouba</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 325601650785<br/><b>Adresse:</b> Zone manouba manouba<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> En cours</div>]]></description>
+  <Point>
+    <coordinates>10.015760147801661,36.76586229565319,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>805521115610 - Zone Sidi bousaid</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 805521115610<br/><b>Adresse:</b> Zone Sidi bousaid<br/><b>Frais:</b> 8.95 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> PrÃªt pour livraison</div>]]></description>
+  <Point>
+    <coordinates>10.124398834401529,36.781279696909394,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425504211 - jardins d&#x27;el menzah 1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 60425504211<br/><b>Adresse:</b> jardins d&#x27;el menzah 1<br/><b>Frais:</b> 7.6 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1667221,36.8353876,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>171025500386 - Jeanne d&#x27;arc</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 171025500386<br/><b>Adresse:</b> Jeanne d&#x27;arc<br/><b>Frais:</b> 8.2 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1809495,36.8200212,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>210425541225 - Sidi bousaid</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 210425541225<br/><b>Adresse:</b> Sidi bousaid<br/><b>Frais:</b> 8.5 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1135873,36.7686795,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725698122 - manar1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725698122<br/><b>Adresse:</b> manar1<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1402003,36.8372507,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725709567 - rue ichbilia</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725709567<br/><b>Adresse:</b> rue ichbilia<br/><b>Frais:</b> 7.6 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1126763,36.7642455,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725612526 - zahrouni</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725612526<br/><b>Adresse:</b> zahrouni<br/><b>Frais:</b> 8.8 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1078508,36.7922783,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>10825662219 - lycée abou kacem chebbi</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 10825662219<br/><b>Adresse:</b> lycée abou kacem chebbi<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1726889,36.7894184,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>110825640684 - 16 rue 8205 hay khadra</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 110825640684<br/><b>Adresse:</b> 16 rue 8205 hay khadra<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1995966,36.8328463,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>290825175632 - Kram</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 290825175632<br/><b>Adresse:</b> Kram<br/><b>Frais:</b> 9.25 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2943555,36.8479991,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425552333 - carrefour el marsa</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 60425552333<br/><b>Adresse:</b> carrefour el marsa<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2975514,36.8668257,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>171025500386 - Jeanne d&#x27;arc</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 171025500386<br/><b>Adresse:</b> Jeanne d&#x27;arc<br/><b>Frais:</b> 8.2 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1809495,36.8200212,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - ariana borj louzir</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> ariana borj louzir<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2108277,36.8620857,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>290825175632 - Kram</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 290825175632<br/><b>Adresse:</b> Kram<br/><b>Frais:</b> 9.25 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2943555,36.8479991,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>110825640684 - 16 rue 8205 hay khadra</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 110825640684<br/><b>Adresse:</b> 16 rue 8205 hay khadra<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1995966,36.8328463,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>10825662219 - lycée abou kacem chebbi</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 10825662219<br/><b>Adresse:</b> lycée abou kacem chebbi<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1726889,36.7894184,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725612526 - zahrouni</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725612526<br/><b>Adresse:</b> zahrouni<br/><b>Frais:</b> 8.8 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1078508,36.7922783,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725709567 - rue ichbilia</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725709567<br/><b>Adresse:</b> rue ichbilia<br/><b>Frais:</b> 7.6 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1126763,36.7642455,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725698122 - manar1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725698122<br/><b>Adresse:</b> manar1<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1402003,36.8372507,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - ariana borj louzir</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> ariana borj louzir<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2108277,36.8620857,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>210425541225 - Sidi bousaid</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 210425541225<br/><b>Adresse:</b> Sidi bousaid<br/><b>Frais:</b> 8.5 TND<br/><b>PrioritÃ©:</b> Standard<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1135873,36.7686795,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425504211 - jardins d&#x27;el menzah 1</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 60425504211<br/><b>Adresse:</b> jardins d&#x27;el menzah 1<br/><b>Frais:</b> 7.6 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1667221,36.8353876,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - tunis lafayette</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> tunis lafayette<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1802378,36.8150258,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - tunis centre ville</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> tunis centre ville<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1853321,36.8004904,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - tunis lafayette</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> tunis lafayette<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.1802378,36.8150258,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - manouba manouba</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> manouba manouba<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.0228549,36.759817,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - ariana ariana</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> ariana ariana<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2108277,36.8620857,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>60425552333 - carrefour el marsa</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 60425552333<br/><b>Adresse:</b> carrefour el marsa<br/><b>Frais:</b> 7.75 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2975514,36.8668257,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>240725479290 - ariana borj louzir</name>
+  <description><![CDATA[<div><b>RÃ©fÃ©rence:</b> 240725479290<br/><b>Adresse:</b> ariana borj louzir<br/><b>Frais:</b> 7.3 TND<br/><b>PrioritÃ©:</b> Express<br/><b>Statut:</b> Retour livrée</div>]]></description>
+  <Point>
+    <coordinates>10.2108277,36.8620857,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>EntrepÃ´t Principal</name>
+  <description><![CDATA[<div><b>EntrepÃ´t Principal</b><br/>Point de dÃ©part des livraisons</div>]]></description>
+  <Point>
+    <coordinates>10.20616,36.82857,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>
