@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Interface - Logistique</title>
+    <!-- On va utiliser Alpine.js ou juste Vanilla JS. Faisons simple : Vanilla JS -->
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        button { padding: 10px 15px; margin-top: 10px; cursor: pointer; border: none; background: #007bff; color: white; border-radius: 4px; }
+        button:hover { background: #0056b3; }
+        .alert { color: green; font-weight: bold; margin-top: 10px; display:none; }
+    </style>
+</head>
+<body>
+
+    <h1>Interface Véhicule (Chauffeur #10)</h1>
+
+    <div class="card">
+        <h2>1. Démarrer ma journée</h2>
+        <button onclick="startShift()">Commencer (Start Shift)</button>
+        <p id="shift-status" class="alert"></p>
+    </div>
+
+    <div class="card">
+        <h2>2. Mise à jour de Colis (Temps Réel)</h2>
+        <p>Scannez et livrez le Colis #999:</p>
+        <button onclick="deliverPackage()">Marquer "LIVRÉ" et mettre à jour le KPI Admin</button>
+        <p id="pkg-status" class="alert"></p>
+    </div>
+
+    <script>
+        // L'API backend est sur le port 8000 (FastAPI)
+        const BACKEND_API = "http://localhost:8000/api/v1";
+
+        async function startShift() {
+            try {
+                const res = await fetch(`${BACKEND_API}/driver/shift/start`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({driver_id: 1})
+                });
+                const data = await res.json();
+                const msg = document.getElementById("shift-status");
+                msg.innerText = "Journée démarrée ! Chargement de la mission...";
+                msg.style.display = "block";
+                
+                // Rediriger vers la page de mission pour afficher le planning dynamique
+                setTimeout(() => {
+                    window.location.href = "/mission";
+                }, 1000);
+            } catch (error) {
+                console.error("Erreur:", error);
+                const msg = document.getElementById("shift-status");
+                msg.innerText = "Erreur de connexion au serveur Central Agent sur le port 8000.";
+                msg.style.display = "block";
+                msg.style.color = "red";
+            }
+        }
+
+        async function deliverPackage() {
+            // On simule un call "Live" (Pub/Sub + API REST)
+            const payload = {
+                driver_id: 1,
+                package_id: 999,
+                status: "DELIVERED",
+                lat: 48.8566,  // Coordonnées GPS simulées
+                lon: 2.3522
+            };
+
+            const res = await fetch(`${BACKEND_API}/driver/package/status`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            const msg = document.getElementById("pkg-status");
+            msg.innerText = `Colis livré ! Profit recalculé côté backend. Réponse : ${data.ack}`;
+            msg.style.display = "block";
+            msg.style.color = "blue";
+        }
+
+        // --- ICI LOGIQUE PUB/SUB ---
+        // Dans un environnement réel avec Websocket ou MQTT (ex: socket.io/MQTT.js):
+        // const broker = new WebSocket("ws://localhost:5000/ws");
+        // broker.onmessage = (event) => { alert("Alerte Backend dynamique: " + event.data); }
+        // ---------------------------
+    </script>
+
+</body>
+</html>

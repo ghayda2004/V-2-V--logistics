@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schéma de Mission - Véhicule 1</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; border-left: 5px solid #007bff; }
+        .error-card { border-left-color: #dc3545; background-color: #fdf2f2; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; margin-bottom: 15px; }
+        .stop { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .stop:last-child { border-bottom: none; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: white; }
+        .bg-pickup { background-color: #ffc107; }
+        .bg-dropoff { background-color: #28a745; }
+        .bg-break { background-color: #6c757d; }
+        h1, h2, h3 { margin-top: 0; }
+        ul { margin: 10px 0 0 0; padding-left: 20px; }
+    </style>
+    
+    <!-- Leaflet JS et CSS pour la Map interactive -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Interface Véhicule : Ma Feuille de Route</h1>
+    
+    {% if error %}
+    <!-- Gestion d'Erreur : Backend Injoignable -->
+    <div class="card error-card">
+        <h2 style="color: #dc3545;">⚠️ Erreur de Connexion</h2>
+        <p>{{ error }}</p>
+        <p>Assurez-vous que l'Agent Central (FastAPI) tourne sur le port 8000.</p>
+        <a href="/mission" style="color: #007bff; text-decoration: none; font-weight: bold;">Réessayer</a>
+    </div>
+    {% endif %}
+
+    {% if mission %}
+    <!-- Affichage du Schéma Mission (JSON Pydantic) -->
+    <div class="card">
+        <div class="header">
+            <h2>Chauffeur : {{ mission.driver_name }} ({{ mission.vehicle_id }})</h2>
+            <span><strong>Début :</strong> {{ mission.shift_start[:10] }} à {{ mission.shift_start[11:16] }}</span>
+        </div>
+        <p><strong>Distance totale prévue :</strong> {{ mission.total_distance_km }} km</p>
+        <p style="color: #d32f2f;"><strong>Heure de pause obligatoire estimée :</strong> {{ mission.mandatory_break_time[11:16] }}</p>
+    </div>
+
+    <!-- Carte Interactive Leaflet -->
+    <div class="card" style="padding: 10px;">
+        <h3 style="margin: 10px;">Aperçu de l'Itinéraire Réel</h3>
+        <div id="map" style="height: 500px; width: 100%; border-radius: 8px;"></div>
+    </div>
+
+    <h3>Arrêts Planifiés ({{ mission.planned_stops|length }}) :</h3>
+
+    <div class="card">
+        {% for stop in mission.planned_stops %}
+        <div class="stop">
+            <h4 style="margin:0 0 5px 0;">
+                Arrêt #{{ stop.stop_id }} - ETA: {{ stop.eta[11:16] }}
+                {% if stop.stop_type == "PICKUP" %}<span class="badge bg-pickup">RAMASSAGE</span>{% endif %}
+                {% if stop.stop_type == "DELIVERY" %}<span class="badge bg-dropoff">LIVRAISON</span>{% endif %}
+                {% if stop.stop_type == "BREAK" %}<span class="badge bg-break">PAUSE LÉGALE</span>{% endif %}
+            </h4>
+
+            {% if stop.instructions %}
+            <p style="margin: 5px 0;"><i>Instructions : "{{ stop.instructions }}"</i></p>
+            {% endif %}
+
+            {% if stop.packages %}
+            <ul>
+                {% for pkg in stop.packages %}
+                <li>
+                    <strong>{{ pkg.package_id }}</strong> ({{ pkg.weight_kg }}kg) - 
+                    {{ pkg.action_type }} à <span style="color:#007bff">{{ pkg.address }}</span> 
+                    (Fenêtre: {{ pkg.time_window }})
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var stops = [];
+            {% for stop in mission.planned_stops %}
+                stops.push({
+                    lat: parseFloat("{{ stop.lat }}"),
+                    lon: parseFloat("{{ stop.lon }}"),
+                    id: "{{ stop.stop_id }}",
+                    type: "{{ stop.stop_type }}",
+                    eta: "{{ stop.eta[11:16] }}"
+                });
+            {% endfor %}
+
+            if (stops.length > 0) {
+                // Initialisation de la carte sur le point de départ
+                var map = L.map('map').setView([stops[0].lat, stops[0].lon], 12);
+
+                // Ajout des tuiles OpenStreetMap
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
+
+                var latlngs = [];
+
+                // Ajout des marqueurs pour chaque stop
+                stops.forEach(function(stop) {
+                    var latlng = [stop.lat, stop.lon];
+                    latlngs.push(latlng);
+                    var marqueur = L.marker(latlng).addTo(map);
+                    
+                    var infos = "<b>Arrêt #" + stop.id + "</b><br>" + stop.type + "<br>Heure Prévue: " + stop.eta;
+                    marqueur.bindPopup(infos);
+                });
+
+                // Tracé de la route réelle depuis OSRM de manière dynamique dans l'interface
+                if (latlngs.length > 1) {
+                    // L'API OSRM prend des couples longitude,latitude
+                    var osrmCoords = stops.map(function(s) { return s.lon + "," + s.lat; }).join(";");
+                    var osrmUrl = "https://router.project-osrm.org/route/v1/driving/" + osrmCoords + "?overview=full&geometries=geojson";
+                    
+                    fetch(osrmUrl)
+                        .then(function(response) { return response.json(); })
+                        .then(function(data) {
+                            if (data.routes && data.routes.length > 0) {
+                                // Dessin du tracé des vraies routes (geoJSON)
+                                var geojsonRoute = L.geoJSON(data.routes[0].geometry, {
+                                    style: { color: '#0056b3', weight: 6, opacity: 0.8, lineJoin: 'round' }
+                                }).addTo(map);
+                                map.fitBounds(geojsonRoute.getBounds(), { padding: [20, 20] });
+                            } else {
+                                // Fallback (Tracé linéaire)
+                                var polyline = L.polyline(latlngs, {color: '#0056b3', weight: 4, opacity: 0.8}).addTo(map);
+                                map.fitBounds(polyline.getBounds());
+                            }
+                        })
+                        .catch(function(error) {
+                            console.error("Problème API OSRM: ", error);
+                            var polyline = L.polyline(latlngs, {color: '#0056b3', weight: 4, opacity: 0.8}).addTo(map);
+                            map.fitBounds(polyline.getBounds());
+                        });
+                }
+            }
+        });
+    </script>
+    {% endif %}
+</div>
+
+</body>
+</html>
