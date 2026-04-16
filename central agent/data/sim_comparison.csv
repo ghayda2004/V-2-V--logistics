@@ -1,0 +1,5 @@
+scenario_key,scenario_label,status,active_vehicles,total_distance_km,total_time_h,fuel_l,fuel_cost,amortissement_km_cost,amortissement_fixed_cost,total_operating_cost,km_saved_vs_baseline,fuel_cost_saved_vs_baseline,amortissement_saved_vs_baseline,total_cost_saved_vs_baseline
+1_car,Scenario 1: 1 Vehicle (AI choice),feasible,1,469.701,13.23,44.62,113.79,84.55,35.0,233.33,0.0,0.0,0.0,0.0
+2_cars_forced,Scenario 2: Force 2 Vehicles,feasible,2,476.269,13.32,45.25,115.38,85.73,70.0,271.1,-6.568,-1.59,-36.18,-37.77
+3_cars_forced,Scenario 3: Force 3 Vehicles,feasible,3,503.646,13.68,47.85,122.01,90.66,105.0,317.66,-33.945,-8.22,-76.11,-84.33
+5_cars_forced,Scenario 4: Force 5 Vehicles,feasible,5,517.133,13.72,49.13,125.28,93.08,175.0,393.36,-47.432,-11.49,-148.53,-160.03

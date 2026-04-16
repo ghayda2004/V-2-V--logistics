@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Carte des Colis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        :root {
+            --bg: #f5f2eb;
+            --card: #ffffff;
+            --ink: #1d2430;
+            --muted: #5b6472;
+            --line: #dde2ea;
+            --accent: #0f3c68;
+            --accent-soft: #dce9f6;
+            --elev: 0 14px 38px rgba(19, 37, 61, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            background:
+                radial-gradient(1200px 500px at 10% -10%, #ffffff 0%, rgba(255, 255, 255, 0) 65%),
+                radial-gradient(1000px 500px at 100% 0%, #e4eef9 0%, rgba(228, 238, 249, 0) 60%),
+                linear-gradient(160deg, #f5f2eb 0%, #ece7dc 100%);
+            color: var(--ink);
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            min-height: 100vh;
+            gap: 18px;
+            padding: 18px;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 20px;
+            overflow: auto;
+            box-shadow: var(--elev);
+            position: sticky;
+            top: 18px;
+            max-height: calc(100vh - 36px);
+        }
+
+        .title {
+            margin: 0 0 10px 0;
+            font-size: 1.48rem;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+        }
+
+        .subtitle {
+            margin: 0 0 18px 0;
+            color: var(--muted);
+            font-size: 0.93rem;
+            line-height: 1.45;
+            padding: 10px 12px;
+            background: #f7fafc;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+        }
+
+        .driver-card {
+            border: 1px solid var(--line);
+            border-left: 8px solid #999;
+            border-radius: 14px;
+            padding: 12px 12px 10px;
+            margin-bottom: 12px;
+            background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+            transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+
+        .driver-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(24, 36, 55, 0.12);
+        }
+
+        .driver-title {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .driver-meta {
+            margin: 6px 0 8px 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .pkg-list {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 0.86rem;
+            color: #2a3b50;
+            line-height: 1.35;
+        }
+
+        .map-wrap {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+            box-shadow: var(--elev);
+        }
+
+        .map-title {
+            margin: 10px 10px 12px 10px;
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border: 1px solid #c7dbef;
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+
+        #map {
+            width: 100%;
+            min-height: 74vh;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+        }
+
+        .badge {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            margin-right: 6px;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        .error {
+            color: #a11a1a;
+            font-weight: 600;
+            margin-top: 6px;
+            background: #fff1f1;
+            border: 1px solid #f0c5c5;
+            border-radius: 10px;
+            padding: 8px 10px;
+        }
+
+        @media (max-width: 960px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                position: static;
+                max-height: none;
+            }
+
+            #map {
+                min-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="panel">
+            <h1 class="title">Dispatch Admin</h1>
+            <p class="subtitle">Destinations de tous les colis, regroupées par chauffeur selon le routing.</p>
+            <div id="driverList"></div>
+            <p id="error" class="error"></p>
+        </aside>
+
+        <main class="map-wrap">
+            <div class="map-title">Carte des destinations par chauffeur</div>
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <script>
+        const BACKEND_API = "{{ backend_url }}";
+        const DRIVER_COLORS = [
+            '#e63946', '#1d3557', '#2a9d8f', '#f4a261', '#6d597a', '#ff006e', '#3a86ff', '#588157'
+        ];
+
+        const map = L.map('map').setView([36.8065, 10.1815], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        function buildDriverCard(driver, mission, color) {
+            const deliveryStops = mission.planned_stops.filter(s => s.stop_type === 'DELIVERY');
+            const totalPackages = deliveryStops.reduce((acc, s) => acc + (s.packages ? s.packages.length : 0), 0);
+
+            const packageItems = [];
+            for (const stop of deliveryStops) {
+                if (!stop.packages) continue;
+                for (const pkg of stop.packages) {
+                    packageItems.push(`<li>${pkg.package_id} - ${pkg.address}</li>`);
+                }
+            }
+
+            return `
+                <div class="driver-card" style="border-left-color:${color}">
+                    <h3 class="driver-title"><span class="badge" style="background:${color}"></span>${driver.name}</h3>
+                    <p class="driver-meta">ID: ${driver.id} | Statut: ${driver.status || 'N/A'}</p>
+                    <p class="driver-meta">Colis attribues: ${totalPackages}</p>
+                    ${packageItems.length ? `<ul class="pkg-list">${packageItems.join('')}</ul>` : '<p class="driver-meta">Aucun colis attribue</p>'}
+                </div>
+            `;
+        }
+
+        function addMissionToMap(driver, mission, color) {
+            const points = [];
+
+            mission.planned_stops.forEach((stop) => {
+                if (Number.isNaN(Number(stop.lat)) || Number.isNaN(Number(stop.lon))) return;
+
+                const isDelivery = stop.stop_type === 'DELIVERY';
+                const markerColor = isDelivery ? color : '#444';
+
+                const marker = L.circleMarker([stop.lat, stop.lon], {
+                    radius: isDelivery ? 8 : 6,
+                    color: markerColor,
+                    fillColor: markerColor,
+                    fillOpacity: 0.9,
+                    weight: 2
+                }).addTo(map);
+
+                let popupHtml = `<b>${driver.name}</b><br/>Stop #${stop.stop_id} (${stop.stop_type})`;
+                if (stop.packages && stop.packages.length > 0) {
+                    popupHtml += '<br/><br/><b>Colis:</b><ul>';
+                    for (const p of stop.packages) {
+                        popupHtml += `<li>${p.package_id} - ${p.address}</li>`;
+                    }
+                    popupHtml += '</ul>';
+                }
+                marker.bindPopup(popupHtml);
+
+                points.push([stop.lat, stop.lon]);
+            });
+
+            if (points.length > 1) {
+                const polyline = L.polyline(points, {
+                    color: color,
+                    weight: 4,
+                    opacity: 0.8
+                }).addTo(map);
+                return polyline.getBounds();
+            }
+
+            if (points.length === 1) {
+                return L.latLngBounds(points);
+            }
+
+            return null;
+        }
+
+        async function loadDashboard() {
+            const driverListEl = document.getElementById('driverList');
+            const errorEl = document.getElementById('error');
+            const allBounds = [];
+
+            try {
+                const driversRes = await fetch(`${BACKEND_API}/drivers`);
+                if (!driversRes.ok) {
+                    throw new Error(`Erreur API drivers (${driversRes.status})`);
+                }
+                const drivers = await driversRes.json();
+
+                if (!drivers.length) {
+                    driverListEl.innerHTML = '<p class="driver-meta">Aucun chauffeur trouve.</p>';
+                    return;
+                }
+
+                let cardsHtml = '';
+
+                for (let i = 0; i < drivers.length; i++) {
+                    const driver = drivers[i];
+                    const color = DRIVER_COLORS[i % DRIVER_COLORS.length];
+
+                    const missionRes = await fetch(`${BACKEND_API}/route/driver/${driver.id}`);
+                    if (!missionRes.ok) {
+                        cardsHtml += `
+                            <div class="driver-card" style="border-left-color:${color}">
+                                <h3 class="driver-title"><span class="badge" style="background:${color}"></span>${driver.name}</h3>
+                                <p class="driver-meta">Impossible de charger la mission (${missionRes.status})</p>
+                            </div>
+                        `;
+                        continue;
+                    }
+
+                    const mission = await missionRes.json();
+                    cardsHtml += buildDriverCard(driver, mission, color);
+
+                    const bounds = addMissionToMap(driver, mission, color);
+                    if (bounds) {
+                        allBounds.push(bounds);
+                    }
+                }
+
+                driverListEl.innerHTML = cardsHtml;
+
+                if (allBounds.length > 0) {
+                    let globalBounds = allBounds[0];
+                    for (let i = 1; i < allBounds.length; i++) {
+                        globalBounds = globalBounds.extend(allBounds[i]);
+                    }
+                    map.fitBounds(globalBounds.pad(0.1));
+                }
+            } catch (err) {
+                console.error(err);
+                errorEl.textContent = `Erreur chargement dashboard: ${err.message}`;
+            }
+        }
+
+        loadDashboard();
+    </script>
+</body>
+</html>

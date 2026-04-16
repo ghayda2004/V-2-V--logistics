@@ -2,10 +2,11 @@ import os
 import sys
 import pandas as pd
 
-# Add the project root to the python path so we can import from 'app'
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Add backend_agent to python path so we can import from app.*
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(project_root, 'backend_agent'))
 
-from app.services.routing import get_ors_distance_matrix, optimize_routes
+from app.services.routing import get_ors_matrices, optimize_routes
 from app.services.messaging import generate_google_maps_url
 
 def test_routing():
@@ -35,9 +36,9 @@ def test_routing():
     
     # 3. Call OpenRouteService (This will fail if ORS_API_KEY in .env is not set correctly)
     try:
-        print("Calling OpenRouteService for real road distances...")
-        distance_matrix = get_ors_distance_matrix(points)
-        print("Successfully retrieved distance matrix!")
+        print("Calling OpenRouteService for real road distances/durations...")
+        distance_matrix, duration_matrix = get_ors_matrices(points)
+        print("Successfully retrieved distance and duration matrices!")
     except Exception as e:
         print(f"\n[ERROR] Failed to get distances from ORS: {e}")
         print("Make sure you added your ORS_API_KEY to the .env file!")
@@ -48,9 +49,11 @@ def test_routing():
     num_vehicles = 3
     result = optimize_routes(
         distance_matrix=distance_matrix, 
+        duration_matrix=duration_matrix,
         num_vehicles=num_vehicles, 
         depot_index=0, 
-        max_distance=150000 # 150 km max per vehicle
+        max_distance=150000, # 150 km max per vehicle
+        max_route_duration_s=6 * 3600
     )
 
     # 5. Display the results

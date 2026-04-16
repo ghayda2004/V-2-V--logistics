@@ -1,92 +1,717 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driver Interface - Logistique</title>
-    <!-- On va utiliser Alpine.js ou juste Vanilla JS. Faisons simple : Vanilla JS -->
+
+    <title>Interface Principale - Véhicule</title>
+
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        button { padding: 10px 15px; margin-top: 10px; cursor: pointer; border: none; background: #007bff; color: white; border-radius: 4px; }
-        button:hover { background: #0056b3; }
-        .alert { color: green; font-weight: bold; margin-top: 10px; display:none; }
+        :root {
+            --bg-1: #f6f4ef;
+            --bg-2: #ece7db;
+            --card: #ffffff;
+            --ink: #1f2835;
+            --muted: #5f6877;
+            --line: #dde3eb;
+            --brand: #0d4f8b;
+            --brand-soft: #dcecff;
+            --danger: #b63131;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(900px 420px at 0% 0%, #ffffff 0%, rgba(255, 255, 255, 0) 60%),
+                linear-gradient(150deg, var(--bg-1) 0%, var(--bg-2) 100%);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(130deg, #0f3b66 0%, #14518d 100%);
+            color: #ffffff;
+            padding: 16px 18px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            box-shadow: 0 12px 26px rgba(15, 44, 77, 0.28);
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 24px rgba(21, 36, 56, 0.09);
+            margin-bottom: 16px;
+        }
+
+        .card.primary {
+            border-left: 6px solid var(--brand);
+        }
+
+        .error-card {
+            border-left: 6px solid #d94848;
+            background: #fff6f6;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 1.08rem;
+        }
+
+        .meta {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .distance {
+            margin: 8px 0;
+            font-weight: 600;
+        }
+
+        .break-time {
+            margin: 0;
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: white;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+
+        .bg-pickup { background-color: #c88900; }
+        .bg-dropoff { background-color: #1c8f56; }
+        .bg-break { background-color: #5c6775; }
+
+        .btn-logout {
+            text-decoration: none;
+            background: #ffffff;
+            color: #0f3b66;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 130ms ease, box-shadow 130ms ease;
+        }
+
+        .btn-logout:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.28);
+        }
+
+        .section-title {
+            margin: 4px 0 10px;
+            font-size: 1.04rem;
+            color: var(--brand);
+            font-weight: 700;
+        }
+
+        .nav-tools {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .url-box {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 10px 12px;
+            background: #f8fbff;
+            color: #32465f;
+            font-size: 0.84rem;
+        }
+
+        .btn-gmaps {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #0d4f8b;
+            background: linear-gradient(120deg, #0d4f8b 0%, #1a67a8 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            transition: transform 120ms ease, box-shadow 120ms ease;
+        }
+
+        .btn-gmaps:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(12, 69, 118, 0.32);
+        }
+
+        .nav-note {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .segments-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 4px 0 10px;
+        }
+
+        .destinations-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            margin: 8px 0 4px;
+            max-height: 180px;
+            overflow: auto;
+            padding-right: 4px;
+        }
+
+        .segment-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 10px;
+            border-radius: 9px;
+            border: 1px solid #b9d2ea;
+            background: #eef6ff;
+            color: #114e86;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .segment-link:hover {
+            background: #dfeeff;
+        }
+
+        .count-note {
+            margin: 2px 0 8px;
+            font-size: 0.82rem;
+            color: #3f5570;
+            font-weight: 600;
+        }
+
+        #map {
+            height: 420px;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+        }
+
+        .stop {
+            border-bottom: 1px dashed #d8dee7;
+            padding: 14px 0;
+        }
+
+        .stop:last-child {
+            border-bottom: none;
+        }
+
+        .stop h4 {
+            margin: 0 0 6px;
+            font-size: 0.98rem;
+        }
+
+        .instructions {
+            margin: 4px 0;
+            color: #55606f;
+        }
+
+        ul {
+            margin: 10px 0 0;
+            padding-left: 18px;
+            line-height: 1.45;
+        }
+
+        li span {
+            color: var(--brand);
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 12px;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            #map {
+                height: 340px;
+            }
+        }
     </style>
+
+    
+
+    <!-- Leaflet JS et CSS pour la Map interactive -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
+
 <body>
 
-    <h1>Interface Véhicule (Chauffeur #10)</h1>
 
-    <div class="card">
-        <h2>1. Démarrer ma journée</h2>
-        <button onclick="startShift()">Commencer (Start Shift)</button>
-        <p id="shift-status" class="alert"></p>
+
+<div class="container">
+
+    <div class="top-bar">
+
+        <h1>Interface Vehicule (Chauffeur: {{ driver_name }})</h1>
+
+        <a href="/logout" class="btn-logout">Déconnexion</a>
+
     </div>
 
-    <div class="card">
-        <h2>2. Mise à jour de Colis (Temps Réel)</h2>
-        <p>Scannez et livrez le Colis #999:</p>
-        <button onclick="deliverPackage()">Marquer "LIVRÉ" et mettre à jour le KPI Admin</button>
-        <p id="pkg-status" class="alert"></p>
+    
+
+    {% if error %}
+
+    <!-- Gestion d'Erreur : Backend Injoignable -->
+
+    <div class="card error-card">
+
+        <h2 style="color: #dc3545; margin-top: 0;">Erreur de Connexion</h2>
+
+        <p>{{ error }}</p>
+
+        <p>Assurez-vous que l'Agent Central (FastAPI) tourne sur le port 8000.</p>
+
+        <a href="/" style="color: #007bff; text-decoration: none; font-weight: bold;">Réessayer</a>
+
     </div>
+
+    {% endif %}
+
+
+
+    {% if mission %}
+
+    <!-- Affichage du Schéma Mission -->
+
+    <div class="card primary">
+
+        <div class="header">
+
+            <h2>Date: {{ mission.shift_start[:10] }}</h2>
+
+            <span><strong>Début :</strong> {{ mission.shift_start[11:16] }}</span>
+
+        </div>
+
+        <p class="distance">Distance totale prevue: {{ mission.total_distance_km }} km</p>
+
+        <p class="break-time">Heure de pause obligatoire estimee: {{ mission.mandatory_break_time[11:16] }}</p>
+
+    </div>
+
+
+
+    <!-- Carte Interactive Leaflet -->
+
+    <div class="card" style="padding: 12px;">
+
+        <h3 class="section-title">Apercu de l'itineraire reel</h3>
+
+        <div class="nav-tools">
+            <input id="gmapsLink" class="url-box" type="text" readonly value="Generation de l'URL Google Maps..." />
+            <a id="openGmapsBtn" class="btn-gmaps" href="#" target="_blank" rel="noopener noreferrer">Ouvrir Google Maps</a>
+        </div>
+
+        <p class="nav-note">Le lien inclut les destinations des colis dans l'ordre des arrets planifies.</p>
+
+        <div id="gmapsSegments" class="segments-wrap"></div>
+        <p id="destCount" class="count-note"></p>
+        <div id="destinationLinks" class="destinations-list"></div>
+
+        <div id="map"></div>
+
+    </div>
+
+
+
+    <h3 class="section-title">Colis a transmettre aujourd'hui / Arrets planifies ({{ mission.planned_stops|length }})</h3>
+
+
+
+    <div class="card">
+
+        {% for stop in mission.planned_stops %}
+
+        <div class="stop">
+
+            <h4>
+
+                Arrêt #{{ stop.stop_id }} - ETA: {{ stop.eta[11:16] }}
+
+                {% if stop.stop_type == "PICKUP" %}<span class="badge bg-pickup">RAMASSAGE</span>{% endif %}
+
+                {% if stop.stop_type == "DELIVERY" %}<span class="badge bg-dropoff">LIVRAISON</span>{% endif %}
+
+                {% if stop.stop_type == "BREAK" %}<span class="badge bg-break">PAUSE LÉGALE</span>{% endif %}
+
+            </h4>
+
+
+
+            {% if stop.instructions %}
+
+            <p class="instructions"><i>Instructions : "{{ stop.instructions }}"</i></p>
+
+            {% endif %}
+
+
+
+            {% if stop.packages %}
+
+            <ul>
+
+                {% for pkg in stop.packages %}
+
+                <li>
+
+                    <strong>{{ pkg.package_id }}</strong> ({{ pkg.weight_kg }}kg) - 
+
+                    {{ pkg.action_type }} a <span>{{ pkg.address }}</span> 
+
+                    (Fenêtre: {{ pkg.time_window }})
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    
 
     <script>
-        // L'API backend est sur le port 8000 (FastAPI)
-        const BACKEND_API = "http://localhost:8000/api/v1";
 
-        async function startShift() {
-            try {
-                const res = await fetch(`${BACKEND_API}/driver/shift/start`, {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({driver_id: 1})
-                });
-                const data = await res.json();
-                const msg = document.getElementById("shift-status");
-                msg.innerText = "Journée démarrée ! Chargement de la mission...";
-                msg.style.display = "block";
-                
-                // Rediriger vers la page de mission pour afficher le planning dynamique
-                setTimeout(() => {
-                    window.location.href = "/mission";
-                }, 1000);
-            } catch (error) {
-                console.error("Erreur:", error);
-                const msg = document.getElementById("shift-status");
-                msg.innerText = "Erreur de connexion au serveur Central Agent sur le port 8000.";
-                msg.style.display = "block";
-                msg.style.color = "red";
+        function buildGoogleMapsUrl(points) {
+            if (!points || points.length < 2) {
+                return null;
+            }
+
+            var routePoints = points.slice();
+
+            var origin = routePoints[0][0] + "," + routePoints[0][1];
+            var destination = routePoints[routePoints.length - 1][0] + "," + routePoints[routePoints.length - 1][1];
+            var waypoints = routePoints.slice(1, routePoints.length - 1)
+                .map(function(p) { return p[0] + "," + p[1]; })
+                .join("|");
+
+            var url = "https://www.google.com/maps/dir/?api=1"
+                + "&origin=" + encodeURIComponent(origin)
+                + "&destination=" + encodeURIComponent(destination)
+                + "&travelmode=driving";
+
+            if (waypoints) {
+                url += "&waypoints=" + encodeURIComponent(waypoints);
+            }
+
+            return url;
+        }
+
+        function buildGoogleMapsSegmentUrls(points, maxPointsPerUrl) {
+            if (!points || points.length < 2) {
+                return [];
+            }
+
+            var urls = [];
+            var start = 0;
+            var maxPts = Math.max(2, parseInt(maxPointsPerUrl, 10) || 25);
+
+            while (start < points.length - 1) {
+                var end = Math.min(start + maxPts - 1, points.length - 1);
+                var segmentPoints = points.slice(start, end + 1);
+                var segmentUrl = buildGoogleMapsUrl(segmentPoints);
+                if (segmentUrl) {
+                    urls.push(segmentUrl);
+                }
+                if (end >= points.length - 1) {
+                    break;
+                }
+                // Keep route continuity between segments.
+                start = end;
+            }
+
+            return urls;
+        }
+
+        function buildDestinationSearchUrls(points) {
+            if (!points || !points.length) {
+                return [];
+            }
+            return points.map(function(p, idx) {
+                var q = p[0] + "," + p[1];
+                return {
+                    label: "Destination " + (idx + 1),
+                    url: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q)
+                };
+            });
+        }
+
+        function updateGoogleMapsLink(points) {
+            var inputEl = document.getElementById('gmapsLink');
+            var btnEl = document.getElementById('openGmapsBtn');
+            var segmentsEl = document.getElementById('gmapsSegments');
+            var destinationLinksEl = document.getElementById('destinationLinks');
+            var countEl = document.getElementById('destCount');
+            if (!inputEl || !btnEl) {
+                return;
+            }
+
+            var urls = buildGoogleMapsSegmentUrls(points, 25);
+            if (!urls.length) {
+                inputEl.value = "Pas assez d'arrets pour generer un itineraire Google Maps.";
+                btnEl.href = "#";
+                btnEl.style.pointerEvents = "none";
+                btnEl.style.opacity = "0.55";
+                if (segmentsEl) {
+                    segmentsEl.innerHTML = "";
+                }
+                if (destinationLinksEl) {
+                    destinationLinksEl.innerHTML = "";
+                }
+                if (countEl) {
+                    countEl.textContent = "";
+                }
+                return;
+            }
+
+            inputEl.value = urls[0];
+            btnEl.href = urls[0];
+            btnEl.style.pointerEvents = "auto";
+            btnEl.style.opacity = "1";
+
+            if (segmentsEl) {
+                if (urls.length === 1) {
+                    segmentsEl.innerHTML = '<span class="nav-note">Toutes les destinations sont incluses dans un seul lien.</span>';
+                } else {
+                    var html = urls.map(function(url, idx) {
+                        return '<a class="segment-link" target="_blank" rel="noopener noreferrer" href="' + url + '">Parcours ' + (idx + 1) + '</a>';
+                    }).join('');
+                    segmentsEl.innerHTML = '<span class="nav-note" style="width:100%;margin:0 0 4px;">Le trajet est decoupe en ' + urls.length + ' liens pour inclure toutes les destinations.</span>' + html;
+                }
+            }
+
+            var destinationPoints = points.slice(1);
+            var destinationUrls = buildDestinationSearchUrls(destinationPoints);
+
+            if (countEl) {
+                countEl.textContent = 'Destinations dans l\'URL: ' + destinationUrls.length + ' / Destinations dans la mission: ' + destinationPoints.length;
+            }
+
+            if (destinationLinksEl) {
+                if (!destinationUrls.length) {
+                    destinationLinksEl.innerHTML = '<span class="nav-note">Aucune destination de livraison.</span>';
+                } else {
+                    destinationLinksEl.innerHTML = destinationUrls.map(function(item) {
+                        return '<a class="segment-link" target="_blank" rel="noopener noreferrer" href="' + item.url + '">' + item.label + '</a>';
+                    }).join('');
+                }
             }
         }
 
-        async function deliverPackage() {
-            // On simule un call "Live" (Pub/Sub + API REST)
-            const payload = {
-                driver_id: 1,
-                package_id: 999,
-                status: "DELIVERED",
-                lat: 48.8566,  // Coordonnées GPS simulées
-                lon: 2.3522
-            };
+        document.addEventListener('DOMContentLoaded', function() {
 
-            const res = await fetch(`${BACKEND_API}/driver/package/status`, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(payload)
-            });
-            const data = await res.json();
-            const msg = document.getElementById("pkg-status");
-            msg.innerText = `Colis livré ! Profit recalculé côté backend. Réponse : ${data.ack}`;
-            msg.style.display = "block";
-            msg.style.color = "blue";
-        }
+            var stops = [];
 
-        // --- ICI LOGIQUE PUB/SUB ---
-        // Dans un environnement réel avec Websocket ou MQTT (ex: socket.io/MQTT.js):
-        // const broker = new WebSocket("ws://localhost:5000/ws");
-        // broker.onmessage = (event) => { alert("Alerte Backend dynamique: " + event.data); }
-        // ---------------------------
+            {% for stop in mission.planned_stops %}
+
+                stops.push({
+
+                    lat: parseFloat("{{ stop.lat }}"),
+
+                    lon: parseFloat("{{ stop.lon }}"),
+
+                    id: "{{ stop.stop_id }}",
+
+                    type: "{{ stop.stop_type }}",
+
+                    eta: "{{ stop.eta[11:16] }}"
+
+                });
+
+            {% endfor %}
+
+
+
+            if (stops.length > 0) {
+
+                // Initialisation de la carte sur le point de départ
+
+                var map = L.map('map').setView([stops[0].lat, stops[0].lon], 12);
+
+
+
+                // Ajout des tuiles OpenStreetMap
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+                    maxZoom: 19,
+
+                    attribution: '© OpenStreetMap'
+
+                }).addTo(map);
+
+
+
+                var latlngs = [];
+
+
+
+                // Ajout des marqueurs pour chaque stop
+
+                stops.forEach(function(stop) {
+
+                    if(!isNaN(stop.lat) && !isNaN(stop.lon)) {
+
+                        var latlng = [stop.lat, stop.lon];
+
+                        latlngs.push(latlng);
+
+                        var marqueur = L.marker(latlng).addTo(map);
+
+                        
+
+                        var infos = "<b>Arrêt #" + stop.id + "</b><br>" + stop.type + "<br>Heure Prévue: " + stop.eta;
+
+                        marqueur.bindPopup(infos);
+
+                    }
+
+                });
+
+
+
+                // Tracé de la route réelle depuis OSRM de manière dynamique dans l'interface
+
+                updateGoogleMapsLink(latlngs);
+
+                if (latlngs.length > 1) {
+
+                    var osrmCoords = latlngs.map(function(ll) { return ll[1] + "," + ll[0]; }).join(";");
+
+                    var osrmUrl = "https://router.project-osrm.org/route/v1/driving/" + osrmCoords + "?overview=full&geometries=geojson";
+
+                    
+
+                    fetch(osrmUrl)
+
+                        .then(function(response) { return response.json(); })
+
+                        .then(function(data) {
+
+                            if (data.routes && data.routes.length > 0) {
+
+                                // Dessin du tracé des vraies routes (geoJSON)
+
+                                var geojsonRoute = L.geoJSON(data.routes[0].geometry, {
+
+                                    style: { color: '#0056b3', weight: 6, opacity: 0.8, lineJoin: 'round' }
+
+                                }).addTo(map);
+
+                                map.fitBounds(geojsonRoute.getBounds(), { padding: [20, 20] });
+
+                            } else {
+
+                                // Fallback (Tracé linéaire)
+
+                                var polyline = L.polyline(latlngs, {color: '#0056b3', weight: 4, opacity: 0.8}).addTo(map);
+
+                                map.fitBounds(polyline.getBounds());
+
+                            }
+
+                        })
+
+                        .catch(function(error) {
+
+                            console.error("Problème API OSRM: ", error);
+
+                            var polyline = L.polyline(latlngs, {color: '#0056b3', weight: 4, opacity: 0.8}).addTo(map);
+
+                            map.fitBounds(polyline.getBounds());
+
+                        });
+
+                }
+
+            } else {
+                updateGoogleMapsLink([]);
+
+            }
+
+        });
+
     </script>
 
+    {% endif %}
+
+</div>
+
 </body>
+
 </html>
+

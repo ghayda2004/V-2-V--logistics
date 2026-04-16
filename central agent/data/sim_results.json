@@ -1,0 +1,218 @@
+{
+  "scenarios": {
+    "1_car": {
+      "label": "Scenario 1: 1 Vehicle (AI choice)",
+      "result": {
+        "active_vehicles": 1,
+        "total_distance_km": 469.701,
+        "total_time_h": 13.23,
+        "distances_per_veh_km": [
+          469.70138000000014
+        ],
+        "times_per_veh_h": [
+          13.23
+        ],
+        "economics": {
+          "fuel_l": 44.62,
+          "fuel_cost": 113.79,
+          "amortissement_km_cost": 84.55,
+          "amortissement_fixed_cost": 35.0,
+          "total_operating_cost": 233.33
+        }
+      },
+      "gains_vs_baseline": null
+    },
+    "2_cars_forced": {
+      "label": "Scenario 2: Force 2 Vehicles",
+      "result": {
+        "active_vehicles": 2,
+        "total_distance_km": 476.269,
+        "total_time_h": 13.32,
+        "distances_per_veh_km": [
+          415.59519,
+          60.67368
+        ],
+        "times_per_veh_h": [
+          11.69,
+          1.63
+        ],
+        "economics": {
+          "fuel_l": 45.25,
+          "fuel_cost": 115.38,
+          "amortissement_km_cost": 85.73,
+          "amortissement_fixed_cost": 70.0,
+          "total_operating_cost": 271.1
+        }
+      },
+      "gains_vs_baseline": {
+        "km_saved": -6.568,
+        "fuel_l_saved": -0.63,
+        "fuel_cost_saved": -1.59,
+        "amortissement_saved": -36.18,
+        "total_cost_saved": -37.77,
+        "vehicles_saved": -1
+      }
+    },
+    "3_cars_forced": {
+      "label": "Scenario 3: Force 3 Vehicles",
+      "result": {
+        "active_vehicles": 3,
+        "total_distance_km": 503.646,
+        "total_time_h": 13.68,
+        "distances_per_veh_km": [
+          291.3823,
+          9.459700000000002,
+          202.80415000000002
+        ],
+        "times_per_veh_h": [
+          8.47,
+          0.22,
+          4.98
+        ],
+        "economics": {
+          "fuel_l": 47.85,
+          "fuel_cost": 122.01,
+          "amortissement_km_cost": 90.66,
+          "amortissement_fixed_cost": 105.0,
+          "total_operating_cost": 317.66
+        }
+      },
+      "gains_vs_baseline": {
+        "km_saved": -33.945,
+        "fuel_l_saved": -3.23,
+        "fuel_cost_saved": -8.22,
+        "amortissement_saved": -76.11,
+        "total_cost_saved": -84.33,
+        "vehicles_saved": -2
+      }
+    },
+    "5_cars_forced": {
+      "label": "Scenario 4: Force 5 Vehicles",
+      "result": {
+        "active_vehicles": 5,
+        "total_distance_km": 517.133,
+        "total_time_h": 13.72,
+        "distances_per_veh_km": [
+          130.08801,
+          174.41272,
+          195.33163000000002,
+          9.459700000000002,
+          7.84137
+        ],
+        "times_per_veh_h": [
+          3.61,
+          4.99,
+          4.71,
+          0.22,
+          0.19
+        ],
+        "economics": {
+          "fuel_l": 49.13,
+          "fuel_cost": 125.28,
+          "amortissement_km_cost": 93.08,
+          "amortissement_fixed_cost": 175.0,
+          "total_operating_cost": 393.36
+        }
+      },
+      "gains_vs_baseline": {
+        "km_saved": -47.432,
+        "fuel_l_saved": -4.51,
+        "fuel_cost_saved": -11.49,
+        "amortissement_saved": -148.53,
+        "total_cost_saved": -160.03,
+        "vehicles_saved": -4
+      }
+    }
+  },
+  "scenario_meta": {
+    "1_car": {
+      "autotuned": false,
+      "forced": false,
+      "base_params": {
+        "num_veh": 1,
+        "limit": 1000000,
+        "fixed_cost": 0,
+        "max_time_h": 24
+      },
+      "params_used": {
+        "num_veh": 1,
+        "limit": 1000000,
+        "fixed_cost": 0,
+        "max_time_h": 24
+      }
+    },
+    "2_cars_forced": {
+      "autotuned": true,
+      "forced": true,
+      "forced_vehicles": 2,
+      "base_params": {
+        "num_veh": 2,
+        "limit": 200000,
+        "fixed_cost": 25000,
+        "max_time_h": 12
+      },
+      "params_used": {
+        "num_veh": 2,
+        "limit": 450000,
+        "fixed_cost": 25000,
+        "max_time_h": 12,
+        "solver_time_s": 2,
+        "force_active_vehicles": 2
+      }
+    },
+    "3_cars_forced": {
+      "autotuned": true,
+      "forced": true,
+      "forced_vehicles": 3,
+      "base_params": {
+        "num_veh": 3,
+        "limit": 200000,
+        "fixed_cost": 25000,
+        "max_time_h": 12
+      },
+      "params_used": {
+        "num_veh": 3,
+        "limit": 300000,
+        "fixed_cost": 25000,
+        "max_time_h": 12,
+        "solver_time_s": 2,
+        "force_active_vehicles": 3
+      }
+    },
+    "5_cars_forced": {
+      "autotuned": true,
+      "forced": true,
+      "forced_vehicles": 5,
+      "base_params": {
+        "num_veh": 5,
+        "limit": 200000,
+        "fixed_cost": 25000,
+        "max_time_h": 12
+      },
+      "params_used": {
+        "num_veh": 5,
+        "limit": 200000,
+        "fixed_cost": 25000,
+        "max_time_h": 12,
+        "solver_time_s": 2,
+        "force_active_vehicles": 5
+      }
+    }
+  },
+  "best_scenario": {
+    "key": "1_car",
+    "label": "Scenario 1: 1 Vehicle (AI choice)",
+    "reason": "minimum total_operating_cost among feasible scenarios"
+  },
+  "artifacts": {
+    "comparison_csv": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\V-2-V--logistics\\central agent\\data\\sim_comparison.csv",
+    "comparison_txt": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\V-2-V--logistics\\central agent\\data\\sim_comparison.txt",
+    "gains_chart_html": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\V-2-V--logistics\\central agent\\data\\sim_gains.html"
+  },
+  "economic_parameters": {
+    "fuel_consumption_l_per_100km": 9.5,
+    "fuel_price_per_l": 2.55,
+    "amortissement_per_km": 0.18,
+    "vehicle_daily_fixed_amort": 35.0
+  }
+}

@@ -11,6 +11,7 @@ class Driver(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
+    password = Column(String(255), nullable=False, default='1234')
     status = Column(String(50), default='OFF_DUTY') 
     current_lat = Column(Float, nullable=True)
     current_lon = Column(Float, nullable=True)

@@ -1,79 +1,131 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{geometry}
 \usepackage{booktabs}
-\geometry{a4paper, margin=1in}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\geometry{margin=2.2cm}
 
-\title{Vehicle Routing Optimization Report: Mathematical Comparison of Fleet Size}
-\author{Logistics AI Agent}
+\title{Logistics Routing Report\\Simulation Economique des Scenarios}
+\author{Central Agent - VRP Simulation}
 \date{\today}
 
 \begin{document}
-
 \maketitle
 
-\section*{1. Executive Summary}
-This report provides a strict mathematical and operational comparison between different fleet size strategies for delivering a generated dataset of 50 packages over the Greater Tunis region. We analyze the scenarios of forcing 1 single vehicle, using the AI's optimized suggestion of 2 vehicles, and dividing the labor evenly across 5 vehicles. 
-
-\section*{2. The Mathematical Model}
-To determine the ``best'' number of vehicles, we utilize a unified cost function ($Z$) comprising the variable cost of route traversal (fuel, wear and tear) and the fixed cost of deploying a vehicle (driver base salary, rental/amortization).
-
-$$ Z = \sum_{v=1}^{V} \left( C_{fixe} + C_{km} \times d_v \right) $$
-
-Where:
+\section*{1. Objectif}
+Ce rapport explique pourquoi le scenario choisi par le moteur de routing est le meilleur selon:
 \begin{itemize}
-    \item $V$ = Number of vehicles dispatched.
-    \item $C_{fixe}$ = Fixed cost per vehicle per day (Estimated at 150 TND for salary + dispatch overhead).
-    \item $C_{km}$ = Variable cost per kilometer (Estimated at 0.20 TND/km for fuel and maintenance).
-    \item $d_v$ = Total distance traveled by vehicle $v$.
+    \item le kilometrage total,
+    \item la consommation et le cout carburant,
+    \item l'amortissement (variable au km + fixe par vehicule),
+    \item le cout total d'exploitation.
 \end{itemize}
 
-Additionally, we impose a hard constraint such that $d_v \le 200 \text{ km}$ to ensure a driver can physically complete the route within an 8-hour workday, considering Tunis traffic and delivery handling times.
+Les resultats proviennent de la simulation ORS + OR-Tools exportee dans:
+\texttt{data/sim\_results.json}, \texttt{data/sim\_comparison.csv}, \texttt{data/sim\_comparison.txt}.
 
-\section*{3. Scenario Analysis}
-
-\subsection*{Scenario 1: Using Exactly 1 Vehicle}
+\section*{1.bis Mise a jour apres execution de simulate\_scenarios.py}
+Le rapport a ete synchronise avec les derniers resultats disponibles dans
+\texttt{data/sim\_results.json}. Les valeurs retenues sont:
 \begin{itemize}
-    \item \textbf{Total Distance traversed:} 252.61 km
-    \item \textbf{Calculation:} $Z_1 = (1 \times 150) + (252.61 \times 0.20) = 200.52 \text{ TND}$
-    \item \textbf{Constraint Check:} \textbf{FAILED.} The distance $d_1 = 252.61 \text{ km}$ strictly violates the logistical upper bounds of a single workday. Dealing with 50 packages spread across 120km territory is impossible for one entity.
+    \item Scenario 1 vehicle (AI choice): 469.701 km, cout total 233.33
+    \item Scenario force 2 vehicles: 476.269 km, cout total 271.10
+    \item Scenario force 3 vehicles: 503.646 km, cout total 317.66
+    \item Scenario force 5 vehicles: 517.133 km, cout total 393.36
 \end{itemize}
 
-\subsection*{Scenario 2: The Optimized Choice (2 Vehicles)}
-By giving the OR-Tools algorithm the freedom to choose while penalizing unnecessary vehicle spawns, the solver naturally converges on \textbf{2 vehicles}.
+\section*{2. Modele Economique}
+Le cout total est calcule comme suit:
+\[
+\text{Cout total} = \text{Cout carburant} + \text{Amortissement au km} + \text{Amortissement fixe vehicules}
+\]
+
+Avec les parametres utilises dans la simulation:
 \begin{itemize}
-    \item \textbf{Total Distance traversed:} 303.45 km
-    \item \textbf{Distribution:} Vehicle 1 (198.08 km) \& Vehicle 2 (105.37 km).
-    \item \textbf{Calculation:} $Z_2 = (2 \times 150) + (303.45 \times 0.20) = 300 + 60.69 = 360.69 \text{ TND}$
-    \item \textbf{Constraint Check:} \textbf{PASSED.} All routes fall within acceptable human and logistical limits.
+    \item Consommation carburant: 9.5 L / 100 km
+    \item Prix carburant: 2.55 par litre
+    \item Amortissement variable: 0.18 par km
+    \item Amortissement fixe: 35.0 par vehicule actif
 \end{itemize}
 
-\subsection*{Scenario 3: Using 5 Vehicles (Even spread)}
-If we ignore fixed costs and merely try to balance the work among 5 drivers:
-\begin{itemize}
-    \item \textbf{Total Distance traversed:} 371.13 km (Notice the spike in km due to multiple round-trips to the central depot).
-    \item \textbf{Distribution:} Routes average $\approx 74 \text{ km}$ per driver.
-    \item \textbf{Calculation:} $Z_5 = (5 \times 150) + (371.13 \times 0.20) = 750 + 74.22 = 824.22 \text{ TND}$
-    \item \textbf{Constraint Check:} Passed, but terribly inefficient.
-\end{itemize}
-
-\section*{4. Conclusion and Metric Comparisons}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lcccc@{}}
+\section*{3. Resultats des Scenarios}
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.3cm}cccc}
 \toprule
-\textbf{Scenario} & \textbf{Vehicles Used} & \textbf{Total Distance} & \textbf{Total Cost (TND)} & \textbf{Feasibility} \\ \midrule
-Single Vehicle & 1 & 252.61 km & 200.52 & Impossible \\
-\textbf{Optimized Choice} & \textbf{2} & \textbf{303.45 km} & \textbf{360.69} & \textbf{Optimal} \\
-Max Spread Fleet & 5 & 371.13 km & 824.22 & Massive Loss \\ \bottomrule
-\end{tabular}
-\caption{Comparison of Logistical Optimization Metrics}
-\end{table}
+\textbf{Scenario} & \textbf{Statut} & \textbf{Vehicules} & \textbf{Distance km} & \textbf{Cout total} \\
+\midrule
+1 vehicle (AI choice) & Faisable & 1 & 469.701 & 233.33 \\
+Force 2 vehicles & Faisable & 2 & 476.269 & 271.10 \\
+Force 3 vehicles & Faisable & 3 & 503.646 & 317.66 \\
+Force 5 vehicles & Faisable & 5 & 517.133 & 393.36 \\
+\bottomrule
+\end{longtable}
 
-\textbf{Conclusion:} 
-While sending only 1 vehicle technically results in the shortest cumulative GPS distance (by eliminating redundant depot return trips), it exceeds the physical capacity limit of what a human can deliver in one day. On the opposite spectrum, sending 5 vehicles results in wasted routing (a 22\% increase in total distance driven) and exorbitant fixed costs. The AI correctly identified that balancing exactly \textbf{2 vehicles} allows for functional execution while maintaining maximum possible profit margins.
+Parametres auto-tunes pour \texttt{2\_cars\_forced}:\\
+\texttt{limit = 450000 m, max\_time\_h = 12, solver\_time\_s = 2, force\_active\_vehicles = 2}.
+
+Parametres auto-tunes pour \texttt{3\_cars\_forced}:\\
+\texttt{limit = 300000 m, max\_time\_h = 12, solver\_time\_s = 2, force\_active\_vehicles = 3}.
+
+Parametres auto-tunes pour \texttt{5\_cars\_forced}:\\
+\texttt{limit = 200000 m, max\_time\_h = 12, solver\_time\_s = 2, force\_active\_vehicles = 5}.
+
+\section*{4. Analyse des Gains vs Baseline}
+Comparaison des scenarios faisables par rapport au baseline:
+\subsection*{4.1 Scenario Force 2 vehicles}
+\begin{itemize}
+    \item Gain kilometrage: -6.568 km (donc perte)
+    \item Gain carburant: -0.63 L (donc perte)
+    \item Gain cout carburant: -1.59 (donc surcout)
+    \item Gain amortissement: -36.18 (donc surcout)
+    \item Gain cout total: -37.77 (donc surcout)
+\end{itemize}
+
+\subsection*{4.2 Scenario Force 3 vehicles}
+\begin{itemize}
+    \item Gain kilometrage: -33.945 km (donc perte)
+    \item Gain carburant: -3.23 L (donc perte)
+    \item Gain cout carburant: -8.22 (donc surcout)
+    \item Gain amortissement: -76.11 (donc surcout)
+    \item Gain cout total: -84.33 (donc surcout)
+\end{itemize}
+
+\subsection*{4.3 Scenario Force 5 vehicles}
+\begin{itemize}
+    \item Gain kilometrage: -47.432 km (donc perte)
+    \item Gain carburant: -4.51 L (donc perte)
+    \item Gain cout carburant: -11.49 (donc surcout)
+    \item Gain amortissement: -148.53 (donc surcout)
+    \item Gain cout total: -160.03 (donc surcout)
+\end{itemize}
+
+Interpretation: les scenarios forces a 2, 3 et 5 vehicules augmentent fortement l'amortissement fixe, ce qui degrade le cout total par rapport au scenario 1 vehicule.
+
+\section*{5. Scenario Retenu}
+\textbf{Scenario selectionne: 1 vehicle (AI choice)}
+
+Raison de selection: minimum \texttt{total\_operating\_cost} parmi les scenarios faisables.
+
+\section*{6. Conclusion Operationnelle}
+Pour ce jeu de donnees et ces contraintes:
+\begin{itemize}
+    \item Le meilleur compromis economique est de garder \textbf{1 vehicule actif}.
+    \item Le scenario force 2 vehicules est \textbf{faisable}, mais plus cher que la reference.
+    \item Le scenario force 3 vehicules est \textbf{faisable}, mais nettement plus cher.
+    \item Le scenario force 5 vehicules est \textbf{faisable}, et le plus couteux a cause de l'amortissement fixe.
+\end{itemize}
+
+\vspace{0.6em}
+\noindent\textbf{Livrables associes:}
+\begin{itemize}
+    \item \texttt{data/sim\_results.json}
+    \item \texttt{data/sim\_comparison.csv}
+    \item \texttt{data/sim\_comparison.txt}
+    \item \texttt{data/sim\_gains.html}
+\end{itemize}
 
 \end{document}
