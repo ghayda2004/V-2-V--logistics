@@ -4,9 +4,9 @@ def calculate_net_profit(
     base_revenue: float, 
     distance_km: float, 
     estimated_time_hours: float, 
-    fuel_cost_per_km: float = 0.15,
-    driver_hourly_wage: float = 15.0,
-    vehicle_wear_per_km: float = 0.05,
+    fuel_cost_per_km: float = 0.143,
+    driver_hourly_wage: float = 5,
+    vehicle_wear_per_km: float = 0.213,
     tolls_and_fees: float = 0.0
 ) -> dict:
     """

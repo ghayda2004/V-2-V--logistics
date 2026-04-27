@@ -10,12 +10,12 @@ from app.core.config import settings
 logger = logging.getLogger(__name__)
 
 # --- CONFIGURATION LOGISTIQUE
-VITESSE_MOYENNE_KMH = 30
+VITESSE_MOYENNE_KMH = 50
 TEMPS_STOP_LIVRAISON_SEC = 600  # 10 minutes
-TEMPS_TRAVAIL_MAX_SEC = 32400   # 9 heures
+TEMPS_TRAVAIL_MAX_SEC = 28800   # 8 heures
 MARGE_RESERVE_SEC = 10800       # 3 heures
-TEMPS_PLANIF_MAX_SEC = TEMPS_TRAVAIL_MAX_SEC - MARGE_RESERVE_SEC  # 6h
-CAP_CAMION_KG = 50
+TEMPS_PLANIF_MAX_SEC = TEMPS_TRAVAIL_MAX_SEC - MARGE_RESERVE_SEC  # 5h
+CAP_CAMION_KG = 500
 
 def get_ors_matrices(points_lat_lon):
     """
@@ -132,7 +132,7 @@ def optimize_routes(
         index = manager.NodeToIndex(node_idx)
         time_dimension.CumulVar(index).SetRange(0, int(deadline))
 
-    # 4. CAPACITÉ : Max 50kg par camion
+    # 4. CAPACITÉ : Max 500kg par camion
     def demand_callback(from_index):
         return int(weights[manager.IndexToNode(from_index)])
    

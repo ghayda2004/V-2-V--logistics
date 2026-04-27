@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 import pandas as pd
@@ -11,11 +12,11 @@ from app.services.messaging import generate_google_maps_url
 
 def test_routing():
     # 1. Path to your database (Make sure you moved it to 'data/' earlier)
-    csv_path = os.path.join("data", "fixed_database_large.csv")
+    csv_path = os.path.join("data", "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\V-2-V--logistics\\central agent\\data\\fixed_database_large.csv")
     
     # Fallback to the smaller database if the large one isn't found
     if not os.path.exists(csv_path):
-        csv_path = os.path.join("data", "fixed_database.csv")
+        csv_path = os.path.join("data", "fixed_database_large.csv")
         
     print(f"Loading data from {csv_path}...")
     df = pd.read_csv(csv_path)
@@ -25,7 +26,7 @@ def test_routing():
     
     # NOTE: The free tier of OpenRouteService limits matrix requests to 50x50 points at a time.
     # For a quick test, we will limit our deliveries to just 15 points.
-    df_subset = df.head(15)
+    df_subset = df.head(60)
     
     # The main warehouse coordinates
     entrepot = (36.82857, 10.20616)
@@ -46,7 +47,8 @@ def test_routing():
 
     # 4. Optimize Routes using OR-Tools
     print("\nRunning Google OR-Tools optimization...")
-    num_vehicles = 3
+    num_vehicles = 6
+    
     result = optimize_routes(
         distance_matrix=distance_matrix, 
         duration_matrix=duration_matrix,
@@ -71,7 +73,12 @@ def test_routing():
             
             # Generate the Clickable Google Maps URL
             gmaps_link = generate_google_maps_url(driver_route_cords)
-
+            outputs_dir = os.path.join(project_root, "outputs")
+            os.makedirs(outputs_dir, exist_ok=True)
+            routing_json_path = os.path.join(outputs_dir, "routing_results.json")
+            with open(routing_json_path, "w", encoding="utf-8") as f:
+                json.dump(result, f, ensure_ascii=False, indent=2)
+            print(f"Saved routing results to {routing_json_path}")
             print(f"\n  -> Vehicle {v_id+1}:")
             print(f"     Distance: {route_info['path_distance_m'] / 1000:.2f} km")
             print(f"     Deliveries: {len(route_info['path_indices']) - 2}")

@@ -10,15 +10,15 @@ sys.path.append(os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file
 from app.services.routing import get_ors_matrices
 
 # --- Parametres economiques (ajustables) ---
-FUEL_CONSUMPTION_L_PER_100KM = 9.5
-FUEL_PRICE_PER_L = 2.55
-AMORTISSEMENT_PER_KM = 0.18
-VEHICLE_DAILY_FIXED_AMORT = 35.0
+FUEL_CONSUMPTION_L_PER_100KM = 6.5
+FUEL_PRICE_PER_L = 2.2
+AMORTISSEMENT_PER_KM = 0.213
+VEHICLE_DAILY_FIXED_AMORT = 0
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 CSV_PATH = os.path.join(PROJECT_ROOT, "data", "fixed_database_large.csv")
 if not os.path.exists(CSV_PATH):
-    CSV_PATH = os.path.join(PROJECT_ROOT, "data", "fixed_database.csv")
+    CSV_PATH = os.path.join(PROJECT_ROOT, "data", "fixed_database_large.csv")
 
 dfc = pd.read_csv(CSV_PATH)
 ENTREPOT = (36.82857, 10.20616)

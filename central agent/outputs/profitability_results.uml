@@ -1,0 +1,44 @@
+@startuml
+title Route Profitability Results
+
+class RouteProfitability {
+  vehicle_id : string
+  deliveries : int
+  base_revenue : float
+  total_costs : float
+  net_profit : float
+  profit_margin_percentage : float
+  is_profitable : bool
+}
+
+object Route_0 as "Route 0" {
+  vehicle_id = 0
+  deliveries = 18
+  base_revenue = 162
+  total_costs = 67.46
+  net_profit = 94.54
+  profit_margin_percentage = 58.36
+  is_profitable = True
+}
+
+object Route_1 as "Route 1" {
+  vehicle_id = 1
+  deliveries = 23
+  base_revenue = 207
+  total_costs = 40.16
+  net_profit = 166.84
+  profit_margin_percentage = 80.6
+  is_profitable = True
+}
+
+object Route_2 as "Route 2" {
+  vehicle_id = 2
+  deliveries = 19
+  base_revenue = 171
+  total_costs = 42.26
+  net_profit = 128.74
+  profit_margin_percentage = 75.29
+  is_profitable = True
+}
+
+@enduml
