@@ -26,7 +26,7 @@ def test_routing():
     
     # NOTE: The free tier of OpenRouteService limits matrix requests to 50x50 points at a time.
     # For a quick test, we will limit our deliveries to just 15 points.
-    df_subset = df.head(60)
+    df_subset = df.head(20)
     
     # The main warehouse coordinates
     entrepot = (36.82857, 10.20616)
@@ -47,7 +47,7 @@ def test_routing():
 
     # 4. Optimize Routes using OR-Tools
     print("\nRunning Google OR-Tools optimization...")
-    num_vehicles = 6
+    num_vehicles = 2
     
     result = optimize_routes(
         distance_matrix=distance_matrix, 
@@ -55,7 +55,7 @@ def test_routing():
         num_vehicles=num_vehicles, 
         depot_index=0, 
         max_distance=150000, # 150 km max per vehicle
-        max_route_duration_s=6 * 3600
+        max_route_duration_s=2 * 3600
     )
 
     # 5. Display the results
