@@ -1,229 +1,97 @@
-# 🚚 Les Agents Intelligents - V2V Logistics Communication System
+# V-2-V Logistics
 
-An intelligent vehicle-to-vehicle communication platform for autonomous logistics optimization using multi-agent systems and real-time auctions.
+A delivery route optimization and visualization system for the **Grand Tunis** area (Tunisia). This project geocodes customer delivery addresses, augments real data with synthetic points, and generates optimized delivery maps using Google Maps and KML exports.
 
-## 📋 Project Overview
+## Features
 
-**Les Agents Intelligents** transforms fleet management by treating each vehicle as an autonomous agent capable of:
-- 🤖 Calculating its own operational costs
-- 📡 Communicating with other agents via MQTT
-- 🤝 Bidding on new packages in real-time
-- 🗺️ Optimizing dynamic delivery routes
+- **Address Geocoding** — resolves delivery addresses to GPS coordinates using Nominatim (OpenStreetMap) with an ArcGIS fallback
+- **Data Augmentation** — generates additional synthetic delivery points around real locations to reach target coverage
+- **Delivery Enrichment** — automatically computes delivery fees, priority levels, payment modes, and client types
+- **Map Exports** — produces three outputs:
+  - `livraisons_mymaps.kml` — importable into Google My Maps
+  - `google_maps_links.html` — a list of direct Google Maps links for each stop
+  - `google_maps_livraisons.html` — an interactive Google Maps page (requires an API key) or a no-key instructions page
+- **Route Optimization** — uses Google OR-Tools for vehicle routing and delivery scheduling
 
-### Core Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Admin Dashboard (React)                   │
-│              - Monitor fuel economies                         │
-│              - Add/manage new packages                        │
-└────────────────────┬────────────────────────────────────────┘
-                     │
-     ┌───────────────┼───────────────┐
-     ▼               ▼               ▼
-┌──────────┐  ┌──────────┐   ┌──────────────┐
-│          │  │          |   │              │
-│ Static   │  │Agents &  │   │V2V Network   │
-│Intel     │  │Calculat  │   │(MQTT)        │
-└──────────┘  └──────────┘   └──────────────┘
-     │               │               │
-     └───────────────┼───────────────┘
-                     │
-     ┌───────────────┴───────────────┐
-     ▼                               ▼
-┌─────────────────┐        ┌──────────────────┐
-│  VRP Optimizer  │        │ Agent Swarm      │
-│ (OR-Tools)      │        │ (Driver App IA)  │
-└─────────────────┘        └──────────────────┘
-```
-
----
-
-## 🎯 Project Phases
-
-### Static Intelligence & Data Preparation (Python)
-
-**Objective:** Transform raw data into optimized delivery missions.
-
-#### 1. Geo-Intelligence & Data Cleaning
-- **Tools:** Pandas, GeoPy
-- **Tasks:**
-  - ✅ Clean dataset (already completed)
-  - ✅ Convert addresses to GPS coordinates (Lat/Long)
-  - Extract temporal patterns from delivery windows
-
-#### 2. Dynamic Zoning Algorithm (K-Means Clustering)
-- **Objective:** Divide delivery area into dynamic zones based on daily package density
-- **Key Questions to Resolve:**
-  - **Zone Division Strategy:** Should zones be optimized for:
-    - Even distribution of packages per zone?
-    - Balanced travel times?
-    - Truck capacity constraints?
-  - **Multi-Zone Assignment:** Can drivers serve multiple zones?
-    - Yes: Enables cross-zone routing optimization
-    - Consideration: May increase complexity in real-time rerouting
-  - **Zone Constraints:**
-    - Max packages per zone: `min(truck_capacity, cluster_density)`
-    - Max distance per zone: Should relate to fuel autonomy and delivery time windows
-    - Recommended: 20-50 km radius per zone depending on urban density
-
-#### 3. Fleet Optimization (VRP - Vehicle Routing Problem)
-- **Tools:** Google OR-Tools
-- **Inputs:** Zoned packages, truck capacities, fuel constraints
-- **Outputs:** Initial routes for each vehicle
-- **Metrics:**
-  - Base consumption = Distance × fuel_rate
-
-**Files:** `static/data_clean.py`, `static/dispatch.py`
-
----
-
-###  Agent Modeling & Cost Calculator (AI Core)
-
-**Objective:** Make each vehicle "aware" of its operational costs and capabilities.
-
-#### Agent Attributes
-Each truck maintains real-time awareness of:
-- **ID:** Unique vehicle identifier
-- **GPS Position:** Real-time location
-- **Capacity Remaining:** Volume/weight still available
-- **Current Route:** Active delivery tasks
-- **Fuel Level:** Autonomy calculation
-- **Time Window:** Available working hours
-
-#### Cost Calculation Engine (Haversine Formula)
-
-When a new package arrives, the agent calculates the **insertion cost**:
+## Project Structure
 
 ```
-insertion_cost = {
-  distance_km: haversine(current_pos, package_pickup, package_delivery),
-  time_minutes: distance_km / avg_speed + service_time,
-  fuel_liters: distance_km * fuel_consumption_rate,
-  cost_tnd: fuel_liters * fuel_price_per_liter
-}
+central agent/
+├── delevery allocation.ipynb   # Main notebook: geocoding, augmentation, mapping, routing
+├── Copie de client_data.csv    # Real delivery dataset
+├── google_maps_links.html      # Generated: per-stop Google Maps links
+├── google_maps_livraisons.html # Generated: interactive map page
+├── livraisons_mymaps.kml       # Generated: KML file for Google My Maps import
+├── package-lock.json           # Node.js dependency lock (tooling)
+├── .gitignore
+└── .gitattributes
 ```
 
+## Dataset
 
-#### Eligibility Checks
-1. **Capacity Check:** `package_size ≤ remaining_capacity`
-2. **Autonomy Check:** `total_distance ≤ fuel_reserve / fuel_rate`
-3. **Time Check:** `delivery_time ≤ remaining_window`
+`Copie de client_data.csv` contains real delivery records with the following columns:
 
-**File:** `agent_swarm/agent.py`
+| Column | Description |
+|---|---|
+| `Reference` | Unique shipment ID |
+| `Expéditeur` | Sender name |
+| `Adresse destinataire` | Delivery address |
+| `Contenu` | Package contents |
+| `Poids` | Weight (kg) |
+| `Date de création` | Order creation timestamp |
+| `Statut` | Delivery status (e.g., *Livrée*, *Retour livrée*) |
+| `Gouvernorat` | Region (e.g., *Grand Tunis*) |
+| `Prix Total` | Total price (TND) |
 
----
+## Requirements
 
-###  V2V Communication & Auction System (MQTT)
+- Python 3.8+
+- Jupyter Notebook or JupyterLab
 
-**Objective:** Handle dynamic package allocation and real-time alerts without human intervention.
+Install Python dependencies:
 
-
-
-#### Auction Algorithm Flow
-
-```
-
-
-
-## 📁 Project Structure
-
-```
-agentic/
-├── static/                    # PHASE 1: Data & Fleet Optimization
-│   ├── data_clean.py         # Geo-intelligence, data cleaning
-│   ├── dispatch.py           # VRP optimization, initial routing
-│   └── zones/                # Zone definitions (dynamic output)
-│
-├── agent_swarm/              # PHASE 2: Agent Core
-│   ├── agent.py              # Agent class, cost calculator
-│   ├── auction.py            # Bidding logic (TBD)
-│   └── eligibility.py        # Constraint checking (TBD)
-│
-├── network/                  # PHASE 3: MQTT Communication
-│   ├── main.py               # MQTT broker integration
-│   ├── topics.py             # Topic definitions
-│   └── protocols.py          # Message serialization (TBD)
-│
-├── dashboard/                # Admin Dashboard (React/Figma)
-│   └── [Frontend files]
-│
-└── README.md                 # This file
-```
-
----
-
-## 🔧 Technical Stack
-
-| Component | Technology | Role |
-|-----------|-----------|------|
-| Data Processing | Python + Pandas | Dataset management |
-| Geolocation | GeoPy | GPS coordinate conversion |
-| Clustering | Scikit-learn (K-Means) | Dynamic zoning |
-| VRP Solver | Google OR-Tools | Initial route planning |
-| Agent IA | Python/Dart | Local cost calculation |
-| Communication | MQTT (Mosquitto/HiveMQ) | Real-time V2V |
-| Frontend | React + Figma | Admin dashboard |
-| Frontend | Flutter/React Native | Driver mobile app |
-| Database | Firebase/PostgreSQL | Fleet state persistence |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
 ```bash
-Python 3.8+
-pip install pandas geopython google-ortools scikit-learn paho-mqtt
+pip install pandas numpy geopy folium scikit-learn ortools
 ```
 
-### Setup
+## Usage
 
-1. **Data Preparation:**
+1. Place your delivery CSV file in the `central agent/` directory (or update the file path in the notebook).
+2. Open the notebook:
    ```bash
-   cd static/
-   python data_clean.py  # Clean and geocode addresses
-   python dispatch.py    # Generate initial routes
+   jupyter notebook "central agent/delevery allocation.ipynb"
    ```
+3. Run all cells in order. The notebook will:
+   - Geocode delivery addresses (requires an internet connection)
+   - Generate and clean delivery data
+   - Export the three map files listed above
 
-2. **Agent Configuration:**
-   - Update truck profiles in `agent_swarm/agent.py`
-   - Configure fuel consumption rates
-   - Set capacity constraints
+### Optional: Google Maps API Key
 
-3. **MQTT Broker:**
-   ```bash
-   docker run -it -p 1883:1883 eclipse-mosquitto
-   ```
+For a fully interactive embedded map, set your key in the notebook:
 
-4. **Start Agents:**
-   ```bash
-   cd agent_swarm/
-   python agent.py --truck_id T001
-   ```
+```python
+GOOGLE_MAPS_API_KEY = "AIza...."
+```
 
----
+Without a key, the notebook generates a static instructions page and a KML file you can import into [Google My Maps](https://www.google.com/mymaps).
 
-## 📊 Key Metrics & KPIs
+## Delivery Fee Calculation
 
-| Metric | Formula | Target |
-|--------|---------|--------|
-| **Fuel Efficiency** | Total_Distance / Total_Liters | Minimize |
-| **Delivery Rate** | Completed / Total | >95% |
-| **Avg Insertion Cost** | Sum_Bids / New_Packages | Minimize |
-| **Auction Response Time** | Bid_Time | <50ms |
-| **Route Optimization** | (Initial_Distance - Final_Distance) / Initial_Distance | >15% |
+Fees are computed automatically per shipment:
 
----
+```
+Frais de livraison = 7.0 TND (base) + 1.5 TND × Poids (kg)
+```
 
+## Priority Levels
 
-## 🔐 Security & Privacy
+| Weight | Priority |
+|---|---|
+| ≤ 0.5 kg | Express |
+| 0.5 – 2.0 kg | Standard |
+| ≥ 2.0 kg | Basique |
 
-- ✅ MQTT over TLS for encrypted communication
-- ✅ Package data anonymization in logs
-- ✅ Driver authentication via mobile app tokens
+## Coverage Area
 
----
-
-
-**Status:** In Development - Phase 3 (V2V Communication)
+The system focuses on the **Grand Tunis** metropolitan area (approximately 36.50°N–37.00°N, 9.80°E–10.40°E), with built-in filters to exclude sea and lake coordinates.
