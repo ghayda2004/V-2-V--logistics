@@ -1,6 +1,6 @@
 {
   "total_distance": 319970,
-  "total_duration_s": 26656,
+  "total_duration_s": 26662,
   "vehicles_used": 3,
   "routes": {
     "0": {
@@ -15,8 +15,8 @@
         0
       ],
       "path_distance_m": 83948,
-      "path_duration_s": 6870,
-      "path_time_h": 2.908333333333333
+      "path_duration_s": 6876,
+      "path_time_h": 2.91
     },
     "1": {
       "path_indices": [

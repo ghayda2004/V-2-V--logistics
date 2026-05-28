@@ -47,7 +47,7 @@ def test_routing():
 
     # 4. Optimize Routes using OR-Tools
     print("\nRunning Google OR-Tools optimization...")
-    num_vehicles = 2
+    num_vehicles = 6
     
     result = optimize_routes(
         distance_matrix=distance_matrix, 
@@ -55,7 +55,7 @@ def test_routing():
         num_vehicles=num_vehicles, 
         depot_index=0, 
         max_distance=150000, # 150 km max per vehicle
-        max_route_duration_s=2 * 3600
+        max_route_duration_s=7 * 3600
     )
 
     # 5. Display the results
