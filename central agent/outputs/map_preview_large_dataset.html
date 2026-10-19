@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2c5050bb030d82a454cf75705d8e078b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2c5050bb030d82a454cf75705d8e078b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2c5050bb030d82a454cf75705d8e078b = L.map(
+                "map_2c5050bb030d82a454cf75705d8e078b",
+                {
+                    center: [36.76468517440852, 10.134071181924496],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ab289f6ee55c466204daa95e4b67b6b4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ab289f6ee55c466204daa95e4b67b6b4.addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            var marker_23426e13abf16837e83db6adc6cb6c81 = L.marker(
+                [36.630959670383966, 10.0795068318421],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_23426e13abf16837e83db6adc6cb6c81.bindTooltip(
+                `<div>
+                     Zone carrefour el marsa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_71781edd85592da9f48b071dc6ca61df = L.marker(
+                [36.89193768186935, 10.123792857555395],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_71781edd85592da9f48b071dc6ca61df.bindTooltip(
+                `<div>
+                     Zone zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fdbacb5cc36fd148de804d72ffd53b7f = L.marker(
+                [36.85043550101976, 10.225889620496034],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_fdbacb5cc36fd148de804d72ffd53b7f.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f5080575ba492011f263c9bb97b5ee99 = L.marker(
+                [36.63590047370475, 9.91879508384335],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_f5080575ba492011f263c9bb97b5ee99.bindTooltip(
+                `<div>
+                     Zone jardins d'el menzah 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5a20071aa8d7224824cfbb0a05b1c595 = L.marker(
+                [36.7509827803322, 10.223136940868464],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_5a20071aa8d7224824cfbb0a05b1c595.bindTooltip(
+                `<div>
+                     Zone Kram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_acfb913261f70adc5cad72827226bff0 = L.marker(
+                [36.62541696451701, 10.10604904440124],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_acfb913261f70adc5cad72827226bff0.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_274a6dc0b3cda54e0b8088f82a35ce72 = L.marker(
+                [36.7977845733307, 10.208029773399304],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_274a6dc0b3cda54e0b8088f82a35ce72.bindTooltip(
+                `<div>
+                     Zone carrefour el marsa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0a0003e4bf6ff020fec025f612b17c4d = L.marker(
+                [36.870615751499685, 10.07756394625929],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_0a0003e4bf6ff020fec025f612b17c4d.bindTooltip(
+                `<div>
+                     Zone carrefour el marsa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_796dc452d0a8899db7b06c7371e0b891 = L.marker(
+                [36.73656237701236, 9.956668593380902],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_796dc452d0a8899db7b06c7371e0b891.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_aa09cd5344650a91f8e8cf14fce69092 = L.marker(
+                [36.79935860297934, 10.120430277731616],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_aa09cd5344650a91f8e8cf14fce69092.bindTooltip(
+                `<div>
+                     Zone 16 rue 8205 hay khadra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9a0556a1f7bd9b43304af6511b5db1f1 = L.marker(
+                [36.877417985245344, 10.037868816641742],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_9a0556a1f7bd9b43304af6511b5db1f1.bindTooltip(
+                `<div>
+                     Zone 16 rue 8205 hay khadra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_82d9cab244079f50676886ab917482bb = L.marker(
+                [36.69405351941644, 10.121403347998315],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_82d9cab244079f50676886ab917482bb.bindTooltip(
+                `<div>
+                     Zone Jeanne d'arc
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_96cc20511fba946b8fcc7e1744dcbf99 = L.marker(
+                [36.69787706280917, 10.299370075187936],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_96cc20511fba946b8fcc7e1744dcbf99.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6032d84ec4cba7892a2374664d850019 = L.marker(
+                [36.95659934226164, 10.13001797876793],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_6032d84ec4cba7892a2374664d850019.bindTooltip(
+                `<div>
+                     Zone zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bc6b84a1c9c31b70b9b4de38191f8b27 = L.marker(
+                [36.813761188766, 9.978313558581684],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_bc6b84a1c9c31b70b9b4de38191f8b27.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_344b57d9024591e4da38f2725cef5aff = L.marker(
+                [36.66026213054205, 10.292591562563905],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_344b57d9024591e4da38f2725cef5aff.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_abfb24a51bc15d36928853fe1a4cbf1f = L.marker(
+                [36.92335449965161, 9.950060013956724],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_abfb24a51bc15d36928853fe1a4cbf1f.bindTooltip(
+                `<div>
+                     Zone jardins d'el menzah 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0667cb9c4adeb81ed91dbcd4330a7173 = L.marker(
+                [36.79917937424554, 10.129838611755371],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_0667cb9c4adeb81ed91dbcd4330a7173.bindTooltip(
+                `<div>
+                     Zone jardins d'el menzah 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b837fa6db08e67c3a4b7b8ee5f9f11fb = L.marker(
+                [36.7678233987053, 10.272401372268078],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_b837fa6db08e67c3a4b7b8ee5f9f11fb.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_451fc1668866a407a40050204f619fc7 = L.marker(
+                [36.67326660158319, 10.395448725187949],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_451fc1668866a407a40050204f619fc7.bindTooltip(
+                `<div>
+                     Zone Kram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ff0dc8fa28642520456349fe2f75f322 = L.marker(
+                [36.54348601624928, 10.191773802229878],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_ff0dc8fa28642520456349fe2f75f322.bindTooltip(
+                `<div>
+                     Zone rue ichbilia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_59f72112f7abb9b682a437c6b14f13a6 = L.marker(
+                [36.64627225776566, 9.94667091579683],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_59f72112f7abb9b682a437c6b14f13a6.bindTooltip(
+                `<div>
+                     Zone zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c3e65d5bcbf4d9298e14ab53ba7c06a0 = L.marker(
+                [36.78457856578412, 10.246878031113509],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_c3e65d5bcbf4d9298e14ab53ba7c06a0.bindTooltip(
+                `<div>
+                     Zone Sidi bousaid
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_47950cf8790a32ffb8d1e9390c19c492 = L.marker(
+                [36.85732824011935, 10.226979131886898],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_47950cf8790a32ffb8d1e9390c19c492.bindTooltip(
+                `<div>
+                     Zone Sidi bousaid
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c369805841bf1fa1ca495e29f65bbc94 = L.marker(
+                [36.84952823967741, 10.285556560332497],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_c369805841bf1fa1ca495e29f65bbc94.bindTooltip(
+                `<div>
+                     Zone zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f1ebefef054229830f3818cddfc9c49d = L.marker(
+                [36.94228905486141, 10.064010643898524],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_f1ebefef054229830f3818cddfc9c49d.bindTooltip(
+                `<div>
+                     Zone Kram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_db80f1750bd80b1b999c681cc32c5a96 = L.marker(
+                [36.88479198756381, 10.149848247932702],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_db80f1750bd80b1b999c681cc32c5a96.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b1273ccc4e111db6dd503c211364cddf = L.marker(
+                [36.713887514545256, 10.100909039058994],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_b1273ccc4e111db6dd503c211364cddf.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_be08cbbe31633d732ed5cbf07f0a82b8 = L.marker(
+                [36.55727655737609, 9.880462068409244],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_be08cbbe31633d732ed5cbf07f0a82b8.bindTooltip(
+                `<div>
+                     Zone zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6ed89407c0ef5cdd7c65c9523a39f983 = L.marker(
+                [36.67620158257303, 10.351971160849232],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_6ed89407c0ef5cdd7c65c9523a39f983.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_febf0b8123f12a15eae1f8b6d0534cf6 = L.marker(
+                [36.69753604462167, 9.913063774158225],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_febf0b8123f12a15eae1f8b6d0534cf6.bindTooltip(
+                `<div>
+                     Zone Sidi bousaid
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f9b25a051f070c29657019fb3398b50d = L.marker(
+                [36.55258063938274, 9.863736239410798],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_f9b25a051f070c29657019fb3398b50d.bindTooltip(
+                `<div>
+                     Zone rue ichbilia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_818a6d327a635c0b7665ad25dee750a5 = L.marker(
+                [36.65205442935984, 10.399092473308029],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_818a6d327a635c0b7665ad25dee750a5.bindTooltip(
+                `<div>
+                     Zone carrefour el marsa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_56071c3d97416f6f190b8bd086a4dd5b = L.marker(
+                [36.81730676242966, 10.119789596992511],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_56071c3d97416f6f190b8bd086a4dd5b.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b47b4f90c029105c1f32f84cfafeeec2 = L.marker(
+                [36.66236058879193, 10.09334818416276],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_b47b4f90c029105c1f32f84cfafeeec2.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_875e22f856eb5901420e02316688f7da = L.marker(
+                [36.71009442156114, 10.187665025735477],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_875e22f856eb5901420e02316688f7da.bindTooltip(
+                `<div>
+                     Zone zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c0edf5ac48234e0fb3a27af96b0ae308 = L.marker(
+                [36.89410834031765, 10.04898703673507],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_c0edf5ac48234e0fb3a27af96b0ae308.bindTooltip(
+                `<div>
+                     Zone Kram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_95dfe86cf4f558e789c7447e6f211e23 = L.marker(
+                [36.94585933185392, 9.964241407057964],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_95dfe86cf4f558e789c7447e6f211e23.bindTooltip(
+                `<div>
+                     Zone lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_37c6ecbc33fafe18932149c371aff4bf = L.marker(
+                [36.8200212, 10.1809495],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_37c6ecbc33fafe18932149c371aff4bf.bindTooltip(
+                `<div>
+                     Jeanne d'arc
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_7bf31855e8639fec181d718248ab6e64 = L.marker(
+                [36.8353876, 10.1667221],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_7bf31855e8639fec181d718248ab6e64.bindTooltip(
+                `<div>
+                     jardins d'el menzah 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e9bc281db0b6ff2e96833b8d9408e2e2 = L.marker(
+                [36.7686795, 10.1135873],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_e9bc281db0b6ff2e96833b8d9408e2e2.bindTooltip(
+                `<div>
+                     Sidi bousaid
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f52f03735cf752f29d551f64f5636a1a = L.marker(
+                [36.8372507, 10.1402003],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_f52f03735cf752f29d551f64f5636a1a.bindTooltip(
+                `<div>
+                     manar1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4bce6b15ba002ad42d58529931bd7d64 = L.marker(
+                [36.76413, 10.1127187],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_4bce6b15ba002ad42d58529931bd7d64.bindTooltip(
+                `<div>
+                     rue ichbilia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3486ab8eec14993fe41b6b8af1ce60f5 = L.marker(
+                [36.7922783, 10.1078508],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_3486ab8eec14993fe41b6b8af1ce60f5.bindTooltip(
+                `<div>
+                     zahrouni
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_93fbfaa97b82cedc5bd84b3b1109b7aa = L.marker(
+                [36.7894184, 10.1726889],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_93fbfaa97b82cedc5bd84b3b1109b7aa.bindTooltip(
+                `<div>
+                     lycée abou kacem chebbi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_611817a7a24a21798516cee0c5968b2a = L.marker(
+                [36.8341704, 10.194323],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_611817a7a24a21798516cee0c5968b2a.bindTooltip(
+                `<div>
+                     16 rue 8205 hay khadra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_f9547a5360b0414c9d3bdca774ca0981 = L.marker(
+                [36.72393219161856, 10.315360484226224],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_f9547a5360b0414c9d3bdca774ca0981.bindTooltip(
+                `<div>
+                     Zone ezzahra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e8b41c29a9ecdd78b544c8241dfb71c7 = L.marker(
+                [36.69853002528086, 10.248855276393057],
+                {
+}
+            ).addTo(map_2c5050bb030d82a454cf75705d8e078b);
+        
+    
+            marker_e8b41c29a9ecdd78b544c8241dfb71c7.bindTooltip(
+                `<div>
+                     Zone Kram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

@@ -1,0 +1,79 @@
+Reference,Expediteur,Adresse_destinataire,Action,Contenu,Poids,Date_creation,Statut,Gouvernorat,Prix_Total,lat,lon,Frais_Livraison_TND,Priorite,Mode_Paiement,Type_Client
+952897325079,Boutique_A,Zone carrefour el marsa,,Vêtements,0.5,,En attente,Grand Tunis,,36.630959670383966,10.079506831842101,7.75,Express,Paiement à la livraison,B2C
+842619805665,Boutique_B,Zone zahrouni,,Chaussures,1.3,,En attente,Grand Tunis,,36.89193768186935,10.123792857555397,8.95,Standard,Paiement à la livraison,B2C
+467572401819,Boutique_C,Zone ezzahra,,Accessoires,0.3,,En attente,Grand Tunis,,36.85043550101976,10.225889620496034,7.45,Express,Paiement à la livraison,B2C
+815684550792,Boutique_A,Zone jardins d'el menzah 1,,Vêtements,0.5,,En cours,Grand Tunis,,36.63590047370475,9.91879508384335,7.75,Express,Paiement à la livraison,B2C
+242654144774,Boutique_B,Zone Kram,,Accessoires,0.3,,Prêt pour livraison,Grand Tunis,,36.7509827803322,10.223136940868464,7.45,Express,Paiement à la livraison,B2C
+204177456657,Boutique_C,Zone ezzahra,,Électronique,0.5,,En attente,Grand Tunis,,36.62541696451701,10.10604904440124,7.75,Express,Paiement à la livraison,B2C
+481517562548,Boutique_A,Zone carrefour el marsa,,Skin Care,0.5,,En cours,Grand Tunis,,36.7977845733307,10.208029773399304,7.75,Express,Virement,B2C
+390894653808,Boutique_B,Zone carrefour el marsa,,Skin Care,0.5,,En attente,Grand Tunis,,36.870615751499685,10.07756394625929,7.75,Express,Virement,B2C
+536770384985,Boutique_C,Zone lycée abou kacem chebbi,,Skin Care,0.5,,Prêt pour livraison,Grand Tunis,,36.736562377012355,9.956668593380902,7.75,Express,Paiement à la livraison,B2C
+815026653263,Boutique_A,Zone 16 rue 8205 hay khadra,,Accessoires,0.3,,Prêt pour livraison,Grand Tunis,,36.79935860297934,10.120430277731616,7.45,Express,Paiement à la livraison,B2C
+642873184880,Boutique_B,Zone 16 rue 8205 hay khadra,,Livres,0.5,,Prêt pour livraison,Grand Tunis,,36.877417985245344,10.037868816641742,7.75,Express,Carte Bancaire,B2C
+656593539843,Boutique_C,Zone Jeanne d'arc,,Chaussures,1.3,,En attente,Grand Tunis,,36.69405351941644,10.121403347998315,8.95,Standard,Paiement à la livraison,B2C
+616139589950,Boutique_A,Zone ezzahra,,Coffret,2.0,,En attente,Grand Tunis,,36.69787706280917,10.299370075187937,10.0,Basique,Paiement à la livraison,B2C
+199841470437,Boutique_B,Zone zahrouni,,Vêtements,0.5,,En attente,Grand Tunis,,36.95659934226164,10.13001797876793,7.75,Express,Paiement à la livraison,B2C
+859797322741,Boutique_C,Zone lycée abou kacem chebbi,,Électronique,0.5,,En cours,Grand Tunis,,36.813761188766,9.978313558581684,7.75,Express,Paiement à la livraison,B2C
+794034418384,Boutique_A,Zone lycée abou kacem chebbi,,Coffret,2.0,,En cours,Grand Tunis,,36.660262130542044,10.292591562563905,10.0,Basique,Paiement à la livraison,B2C
+398004723046,Boutique_B,Zone jardins d'el menzah 1,,Électronique,0.5,,En attente,Grand Tunis,,36.92335449965161,9.950060013956724,7.75,Express,Paiement à la livraison,B2C
+522289768076,Boutique_C,Zone jardins d'el menzah 1,,Chaussures,1.3,,Prêt pour livraison,Grand Tunis,,36.79917937424554,10.129838611755373,8.95,Standard,Paiement à la livraison,B2C
+208745094729,Boutique_A,Zone ezzahra,,Livres,0.5,,En cours,Grand Tunis,,36.7678233987053,10.272401372268078,7.75,Express,Carte Bancaire,B2C
+298396655568,Boutique_B,Zone Kram,,Coffret,2.0,,En cours,Grand Tunis,,36.67326660158319,10.395448725187947,10.0,Basique,Paiement à la livraison,B2C
+856360899231,Boutique_C,Zone rue ichbilia,,Chaussures,1.3,,En cours,Grand Tunis,,36.54348601624928,10.191773802229878,8.95,Standard,Paiement à la livraison,B2B
+651411099966,Boutique_A,Zone zahrouni,,Coffret,2.0,,En cours,Grand Tunis,,36.64627225776566,9.94667091579683,10.0,Basique,Paiement à la livraison,B2C
+374905718519,Boutique_B,Zone Sidi bousaid,,Vêtements,0.5,,Prêt pour livraison,Grand Tunis,,36.784578565784116,10.246878031113509,7.75,Express,Paiement à la livraison,B2C
+232538839849,Boutique_C,Zone Sidi bousaid,,Vêtements,0.5,,Prêt pour livraison,Grand Tunis,,36.85732824011935,10.226979131886898,7.75,Express,Paiement à la livraison,B2C
+529121141301,Boutique_A,Zone zahrouni,,Skin Care,0.5,,Prêt pour livraison,Grand Tunis,,36.849528239677404,10.285556560332495,7.75,Express,Carte Bancaire,B2C
+148259319677,Boutique_B,Zone Kram,,Électronique,0.5,,En cours,Grand Tunis,,36.94228905486141,10.064010643898525,7.75,Express,Paiement à la livraison,B2B
+393680639022,Boutique_C,Zone ezzahra,,Électronique,0.5,,En cours,Grand Tunis,,36.88479198756381,10.149848247932702,7.75,Express,Paiement à la livraison,B2C
+706054549339,Boutique_A,Zone ezzahra,,Électronique,0.5,,En attente,Grand Tunis,,36.713887514545256,10.100909039058994,7.75,Express,Paiement à la livraison,B2C
+666858989221,Boutique_B,Zone zahrouni,,Électronique,0.5,,En attente,Grand Tunis,,36.55727655737609,9.880462068409244,7.75,Express,Paiement à la livraison,B2C
+628206040020,Boutique_C,Zone lycée abou kacem chebbi,,Skin Care,0.5,,Prêt pour livraison,Grand Tunis,,36.67620158257303,10.351971160849232,7.75,Express,Carte Bancaire,B2C
+977299098769,Boutique_A,Zone Sidi bousaid,,Coffret,2.0,,Prêt pour livraison,Grand Tunis,,36.69753604462167,9.913063774158225,10.0,Basique,Paiement à la livraison,B2C
+622060224381,Boutique_B,Zone rue ichbilia,,Vêtements,0.5,,En attente,Grand Tunis,,36.55258063938274,9.863736239410798,7.75,Express,Paiement à la livraison,B2B
+591812367175,Boutique_C,Zone carrefour el marsa,,Coffret,2.0,,En attente,Grand Tunis,,36.652054429359836,10.399092473308027,10.0,Basique,Paiement à la livraison,B2C
+829165649991,Boutique_A,Zone lycée abou kacem chebbi,,Chaussures,1.3,,En cours,Grand Tunis,,36.81730676242966,10.119789596992511,8.95,Standard,Virement,B2C
+253836367646,Boutique_B,Zone lycée abou kacem chebbi,,Skin Care,0.5,,En cours,Grand Tunis,,36.66236058879193,10.093348184162759,7.75,Express,Paiement à la livraison,B2C
+544647825773,Boutique_C,Zone zahrouni,,Skin Care,0.5,,Prêt pour livraison,Grand Tunis,,36.71009442156114,10.187665025735477,7.75,Express,Paiement à la livraison,B2C
+950983615088,Boutique_A,Zone Kram,,Électronique,0.5,,Prêt pour livraison,Grand Tunis,,36.89410834031765,10.04898703673507,7.75,Express,Paiement à la livraison,B2C
+208987647489,Boutique_B,Zone lycée abou kacem chebbi,,Accessoires,0.3,,En cours,Grand Tunis,,36.94585933185392,9.964241407057964,7.45,Express,Carte Bancaire,B2C
+171025500386,Boutique_C,Jeanne d'arc,,Vêtements,0.8,2025-10-17T19:05:02,Livrée,Grand Tunis,241.0,36.8200212,10.1809495,8.2,Standard,Virement,B2C
+60425504211,Boutique_A,jardins d'el menzah 1,,Swim set blanc,0.4,2025-04-06T12:34:12,Livrée,Grand Tunis,43.0,36.8353876,10.1667221,7.6,Express,Carte Bancaire,B2C
+210425541225,Boutique_B,Sidi bousaid,,Vêtements,1.0,2025-04-21T00:05:39,Livrée,Grand Tunis,222.0,36.7686795,10.1135873,8.5,Standard,Paiement à la livraison,B2C
+240725698122,Boutique_C,manar1,,Lunettes,0.2,2025-07-24T08:17:03,Livrée,Grand Tunis,25.0,36.8372507,10.1402003,7.3,Express,Paiement à la livraison,B2C
+240725709567,Boutique_A,rue ichbilia,,Make up,0.4,2025-07-24T08:20:11,Retour livrée,Grand Tunis,93.0,36.76413,10.1127187,7.6,Express,Paiement à la livraison,B2C
+240725612526,Boutique_B,zahrouni,,Vêtements,1.2,2025-07-24T08:32:05,Livrée,Grand Tunis,330.0,36.7922783,10.1078508,8.8,Standard,Paiement à la livraison,B2C
+10825662219,Boutique_C,lycée abou kacem chebbi,,Accessoires,0.2,2025-08-01T08:36:52,Livrée,Grand Tunis,49.0,36.7894184,10.1726889,7.3,Express,Paiement à la livraison,B2C
+110825640684,Boutique_A,16 rue 8205 hay khadra,,Accessoires,0.2,2025-08-11T09:11:38,Retour livrée,Grand Tunis,28.0,36.8341704,10.194323,7.3,Express,Paiement à la livraison,B2C
+464702745792,Boutique_B,Zone ezzahra,,Skin Care,0.5,,En attente,Grand Tunis,,36.72393219161856,10.315360484226225,7.75,Express,Paiement à la livraison,B2C
+541385293320,Boutique_C,Zone Kram,,Coffret,2.0,,En attente,Grand Tunis,,36.69853002528086,10.248855276393055,10.0,Basique,Paiement à la livraison,B2C
+900001000001,Boutique_A,Zone carrefour el marsa,,Vêtements,0.6,,En attente,Grand Tunis,,36.81,10.18,7.75,Express,Paiement à la livraison,B2C
+900001000002,Boutique_B,Zone zahrouni,,Chaussures,1.1,,En cours,Grand Tunis,,36.79,10.12,8.95,Standard,Paiement à la livraison,B2C
+900001000003,Boutique_C,Zone ezzahra,,Accessoires,0.4,,Prêt pour livraison,Grand Tunis,,36.75,10.22,7.45,Express,Carte Bancaire,B2C
+900001000004,Boutique_A,Zone Kram,,Électronique,0.8,,En attente,Grand Tunis,,36.84,10.25,7.75,Express,Virement,B2B
+900001000005,Boutique_B,Zone jardins d'el menzah 1,,Livres,0.5,,En cours,Grand Tunis,,36.83,10.16,7.75,Express,Paiement à la livraison,B2C
+900001000006,Boutique_C,Zone Sidi bousaid,,Coffret,2.2,,En attente,Grand Tunis,,36.87,10.27,10.0,Basique,Paiement à la livraison,B2C
+900001000007,Boutique_A,Zone rue ichbilia,,Skin Care,0.5,,En cours,Grand Tunis,,36.76,10.11,7.75,Express,Carte Bancaire,B2C
+900001000008,Boutique_B,Zone lycée abou kacem chebbi,,Vêtements,0.7,,Prêt pour livraison,Grand Tunis,,36.78,10.19,7.75,Express,Paiement à la livraison,B2C
+900001000009,Boutique_C,Zone manar1,,Chaussures,1.4,,En attente,Grand Tunis,,36.82,10.14,8.95,Standard,Paiement à la livraison,B2C
+900001000010,Boutique_A,Zone zahrouni,,Accessoires,0.3,,En cours,Grand Tunis,,36.80,10.10,7.45,Express,Carte Bancaire,B2C
+900001000011,Boutique_B,Zone Kram,,Électronique,0.6,,En attente,Grand Tunis,,36.88,10.21,7.75,Express,Paiement à la livraison,B2B
+900001000012,Boutique_C,Zone ezzahra,,Coffret,2.0,,Prêt pour livraison,Grand Tunis,,36.77,10.23,10.0,Basique,Paiement à la livraison,B2C
+900001000013,Boutique_A,Zone Sidi bousaid,,Vêtements,0.5,,En cours,Grand Tunis,,36.86,10.26,7.75,Express,Virement,B2C
+900001000014,Boutique_B,Zone jardins d'el menzah 1,,Livres,0.4,,En attente,Grand Tunis,,36.84,10.17,7.75,Express,Paiement à la livraison,B2C
+900001000015,Boutique_C,Zone rue ichbilia,,Skin Care,0.5,,En cours,Grand Tunis,,36.75,10.13,7.75,Express,Carte Bancaire,B2C
+900001000016,Boutique_A,Zone carrefour el marsa,,Chaussures,1.2,,Prêt pour livraison,Grand Tunis,,36.83,10.20,8.95,Standard,Paiement à la livraison,B2C
+900001000017,Boutique_B,Zone zahrouni,,Accessoires,0.2,,En attente,Grand Tunis,,36.79,10.09,7.45,Express,Paiement à la livraison,B2C
+900001000018,Boutique_C,Zone Kram,,Électronique,0.9,,En cours,Grand Tunis,,36.89,10.24,7.75,Express,Carte Bancaire,B2B
+900001000019,Boutique_A,Zone lycée abou kacem chebbi,,Coffret,2.3,,En attente,Grand Tunis,,36.77,10.18,10.0,Basique,Paiement à la livraison,B2C
+900001000020,Boutique_B,Zone ezzahra,,Vêtements,0.6,,En cours,Grand Tunis,,36.76,10.22,7.75,Express,Paiement à la livraison,B2C
+900001000021,Boutique_C,Zone Sidi bousaid,,Livres,0.5,,Prêt pour livraison,Grand Tunis,,36.88,10.28,7.75,Express,Carte Bancaire,B2C
+900001000022,Boutique_A,Zone jardins d'el menzah 1,,Skin Care,0.4,,En attente,Grand Tunis,,36.85,10.15,7.75,Express,Paiement à la livraison,B2C
+900001000023,Boutique_B,Zone rue ichbilia,,Chaussures,1.3,,En cours,Grand Tunis,,36.74,10.12,8.95,Standard,Paiement à la livraison,B2C
+900001000024,Boutique_C,Zone carrefour el marsa,,Accessoires,0.3,,Prêt pour livraison,Grand Tunis,,36.82,10.19,7.45,Express,Carte Bancaire,B2C
+900001000025,Boutique_A,Zone zahrouni,,Électronique,0.7,,En attente,Grand Tunis,,36.78,10.08,7.75,Express,Virement,B2B
+900001000026,Boutique_B,Zone Kram,,Coffret,2.1,,En cours,Grand Tunis,,36.90,10.23,10.0,Basique,Paiement à la livraison,B2C
+900001000027,Boutique_C,Zone ezzahra,,Vêtements,0.5,,En attente,Grand Tunis,,36.75,10.21,7.75,Express,Paiement à la livraison,B2C
+900001000028,Boutique_A,Zone lycée abou kacem chebbi,,Accessoires,0.4,,En cours,Grand Tunis,,36.78,10.17,7.45,Express,Carte Bancaire,B2C
+900001000029,Boutique_B,Zone Sidi bousaid,,Skin Care,0.6,,Prêt pour livraison,Grand Tunis,,36.87,10.27,7.75,Express,Paiement à la livraison,B2C
+900001000030,Boutique_C,Zone jardins d'el menzah 1,,Chaussures,1.2,,En attente,Grand Tunis,,36.84,10.16,8.95,Standard,Paiement à la livraison,B2C

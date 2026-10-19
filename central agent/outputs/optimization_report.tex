@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\geometry{margin=2.2cm}
+
+\title{Logistics Routing Report\\Simulation Economique des Scenarios}
+\author{Central Agent - VRP Simulation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1. Objectif}
+Ce rapport explique pourquoi le scenario choisi par le moteur de routing est le meilleur selon:
+\begin{itemize}
+    \item le kilometrage total,
+    \item la consommation et le cout carburant,
+    \item l'amortissement (variable au km + fixe par vehicule),
+    \item le cout total d'exploitation.
+\end{itemize}
+
+Les resultats proviennent de la simulation ORS + OR-Tools exportee dans:
+\texttt{data/sim\_results.json}, \texttt{data/sim\_comparison.csv}, \texttt{data/sim\_comparison.txt}.
+
+\section*{1.bis Mise a jour apres execution de simulate\_scenarios.py}
+Le rapport a ete synchronise avec les derniers resultats disponibles dans
+\texttt{data/sim\_results.json}. Les valeurs retenues sont:
+\begin{itemize}
+    \item Scenario 1 vehicle (AI choice): 469.701 km, cout total 233.33
+    \item Scenario force 2 vehicles: 476.269 km, cout total 271.10
+    \item Scenario force 3 vehicles: 503.646 km, cout total 317.66
+    \item Scenario force 5 vehicles: 517.133 km, cout total 393.36
+\end{itemize}
+
+\section*{2. Modele Economique}
+Le cout total est calcule comme suit:
+\[
+\text{Cout total} = \text{Cout carburant} + \text{Amortissement au km} + \text{Amortissement fixe vehicules}
+\]
+
+Avec les parametres utilises dans la simulation:
+\begin{itemize}
+    \item Consommation carburant: 9.5 L / 100 km
+    \item Prix carburant: 2.55 par litre
+    \item Amortissement variable: 0.18 par km
+    \item Amortissement fixe: 35.0 par vehicule actif
+\end{itemize}
+
+\section*{3. Resultats des Scenarios}
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.3cm}cccc}
+\toprule
+\textbf{Scenario} & \textbf{Statut} & \textbf{Vehicules} & \textbf{Distance km} & \textbf{Cout total} \\
+\midrule
+1 vehicle (AI choice) & Faisable & 1 & 469.701 & 233.33 \\
+Force 2 vehicles & Faisable & 2 & 476.269 & 271.10 \\
+Force 3 vehicles & Faisable & 3 & 503.646 & 317.66 \\
+Force 5 vehicles & Faisable & 5 & 517.133 & 393.36 \\
+\bottomrule
+\end{longtable}
+
+Parametres auto-tunes pour \texttt{2\_cars\_forced}:\\
+\texttt{limit = 450000 m, max\_time\_h = 12, solver\_time\_s = 2, force\_active\_vehicles = 2}.
+
+Parametres auto-tunes pour \texttt{3\_cars\_forced}:\\
+\texttt{limit = 300000 m, max\_time\_h = 12, solver\_time\_s = 2, force\_active\_vehicles = 3}.
+
+Parametres auto-tunes pour \texttt{5\_cars\_forced}:\\
+\texttt{limit = 200000 m, max\_time\_h = 12, solver\_time\_s = 2, force\_active\_vehicles = 5}.
+
+\section*{4. Analyse des Gains vs Baseline}
+Comparaison des scenarios faisables par rapport au baseline:
+\subsection*{4.1 Scenario Force 2 vehicles}
+\begin{itemize}
+    \item Gain kilometrage: -6.568 km (donc perte)
+    \item Gain carburant: -0.63 L (donc perte)
+    \item Gain cout carburant: -1.59 (donc surcout)
+    \item Gain amortissement: -36.18 (donc surcout)
+    \item Gain cout total: -37.77 (donc surcout)
+\end{itemize}
+
+\subsection*{4.2 Scenario Force 3 vehicles}
+\begin{itemize}
+    \item Gain kilometrage: -33.945 km (donc perte)
+    \item Gain carburant: -3.23 L (donc perte)
+    \item Gain cout carburant: -8.22 (donc surcout)
+    \item Gain amortissement: -76.11 (donc surcout)
+    \item Gain cout total: -84.33 (donc surcout)
+\end{itemize}
+
+\subsection*{4.3 Scenario Force 5 vehicles}
+\begin{itemize}
+    \item Gain kilometrage: -47.432 km (donc perte)
+    \item Gain carburant: -4.51 L (donc perte)
+    \item Gain cout carburant: -11.49 (donc surcout)
+    \item Gain amortissement: -148.53 (donc surcout)
+    \item Gain cout total: -160.03 (donc surcout)
+\end{itemize}
+
+Interpretation: les scenarios forces a 2, 3 et 5 vehicules augmentent fortement l'amortissement fixe, ce qui degrade le cout total par rapport au scenario 1 vehicule.
+
+\section*{5. Scenario Retenu}
+\textbf{Scenario selectionne: 1 vehicle (AI choice)}
+
+Raison de selection: minimum \texttt{total\_operating\_cost} parmi les scenarios faisables.
+
+\section*{6. Conclusion Operationnelle}
+Pour ce jeu de donnees et ces contraintes:
+\begin{itemize}
+    \item Le meilleur compromis economique est de garder \textbf{1 vehicule actif}.
+    \item Le scenario force 2 vehicules est \textbf{faisable}, mais plus cher que la reference.
+    \item Le scenario force 3 vehicules est \textbf{faisable}, mais nettement plus cher.
+    \item Le scenario force 5 vehicules est \textbf{faisable}, et le plus couteux a cause de l'amortissement fixe.
+\end{itemize}
+
+\vspace{0.6em}
+\noindent\textbf{Livrables associes:}
+\begin{itemize}
+    \item \texttt{data/sim\_results.json}
+    \item \texttt{data/sim\_comparison.csv}
+    \item \texttt{data/sim\_comparison.txt}
+    \item \texttt{data/sim\_gains.html}
+\end{itemize}
+
+\end{document}

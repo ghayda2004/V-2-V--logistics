@@ -1,0 +1,41 @@
+{
+  "0": {
+    "net_profit": 198.94,
+    "total_costs": 53.06,
+    "profit_margin_percentage": 78.95,
+    "breakdown": {
+      "revenue": 252,
+      "fuel_cost": 16.64,
+      "labor_cost": 11.62,
+      "wear_cost": 24.79,
+      "tolls_and_fees": 0.0
+    },
+    "is_profitable": true
+  },
+  "1": {
+    "net_profit": 82.41,
+    "total_costs": 34.59,
+    "profit_margin_percentage": 70.43,
+    "breakdown": {
+      "revenue": 117,
+      "fuel_cost": 10.85,
+      "labor_cost": 7.58,
+      "wear_cost": 16.16,
+      "tolls_and_fees": 0.0
+    },
+    "is_profitable": true
+  },
+  "3": {
+    "net_profit": 160.51,
+    "total_costs": 64.49,
+    "profit_margin_percentage": 71.34,
+    "breakdown": {
+      "revenue": 225,
+      "fuel_cost": 20.23,
+      "labor_cost": 14.13,
+      "wear_cost": 30.13,
+      "tolls_and_fees": 0.0
+    },
+    "is_profitable": true
+  }
+}
