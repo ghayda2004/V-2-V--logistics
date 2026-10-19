@@ -26,7 +26,7 @@ def test_routing():
     
     # NOTE: The free tier of OpenRouteService limits matrix requests to 50x50 points at a time.
     # For a quick test, we will limit our deliveries to just 15 points.
-    df_subset = df.head(20)
+    df_subset = df.head(66)
     
     # The main warehouse coordinates
     entrepot = (36.82857, 10.20616)
